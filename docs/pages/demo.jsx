@@ -16,8 +16,7 @@ export default () => (
 
     <ReactSpecimen span={3}>
       {`
-        <Aztec
-        />
+        <Aztec />
       `}
     </ReactSpecimen>
   </Page>

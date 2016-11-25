@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
-import * as MDL from 'react-mdl';
+import * as Controls from './controls/index';
 
 export const DynamicComponent = (props) => {
-  const CustomComponent = MDL[props.component];
-  return <CustomComponent label="Text..." />;
+  const CustomComponent = Controls.default[props.component];
+  return <CustomComponent {...props} />;
 };
 
 DynamicComponent.propTypes = {
