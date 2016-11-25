@@ -8,9 +8,9 @@ const fields = [
     id: 1,
     name: 'title',
     type: 'textfield',
-    props: [{
+    props: {
       label: 'Text'
-    }],
+    },
     rules: {
       validation: [
         {
