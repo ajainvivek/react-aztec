@@ -1,9 +1,9 @@
 {
-  "name": "react-component-boilerplate",
-  "description": "Boilerplate for React.js components",
-  "author": "Juho Vepsalainen",
-  "user": "survivejs",
-  "version": "3.0.0",
+  "name": "react-aztec",
+  "description": "React dynamic forms with in-built contextual help",
+  "author": "Ajain Vivek",
+  "user": "ajainvivek",
+  "version": "0.0.1",
   "scripts": {
     "start": "webpack-dev-server",
     "test": "jest --",
@@ -72,11 +72,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/survivejs/react-component-boilerplate.git"
+    "url": "https://github.com/ajainvivek/react-aztec.git"
   },
-  "homepage": "https://survivejs.github.io/react-component-boilerplate/",
+  "homepage": "",
   "bugs": {
-    "url": "https://github.com/survivejs/react-component-boilerplate/issues"
+    "url": "https://github.com/ajainvivek/react-aztec/issues"
   },
   "jest": {
     "collectCoverage": true,
@@ -92,10 +92,16 @@
   "keywords": [
     "react",
     "reactjs",
-    "boilerplate"
+    "dynamic-forms",
+    "forms",
+    "contextual-help",
+    "robo-form"
   ],
   "license": "MIT",
   "pre-push": [
     "test"
-  ]
+  ],
+  "dependencies": {
+    "react-mdl": "^1.9.0"
+  }
 }

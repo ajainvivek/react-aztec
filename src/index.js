@@ -1,2 +1,5 @@
-// this should be the entry point to your library
-module.exports = {};
+import { Aztec } from './components/Aztec';
+
+module.exports = {
+  Aztec
+};
