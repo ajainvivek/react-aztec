@@ -3,11 +3,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import GithubCorner from 'react-github-corner';
 import { Catalog, CodeSpecimen, ReactSpecimen } from 'catalog';
+
 import 'react-mdl/extra/material.css';
 import 'react-mdl/extra/material';
-import { Aztec } from './../src';
-
 import 'purecss/build/pure.css';
+
+import { Aztec } from './../src';
 import './main.css';
 import '../style.css';
 import demo from './pages/demo';

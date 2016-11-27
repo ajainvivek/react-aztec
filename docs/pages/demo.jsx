@@ -3,14 +3,7 @@ import { Page, ReactSpecimen } from 'catalog';
 
 export default () => (
   <Page>
-    <h2>My Buttons</h2>
-
-    <p>Are so nice</p>
-
-    <ul>
-      <li>Yes</li>
-      <li>or no</li>
-    </ul>
+    <h2>Dynamic Forms</h2>
 
     <hr />
 
