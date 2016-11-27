@@ -1,11 +1,15 @@
 const mdl = {
   textfield: {
     type: 'Textfield',
-    props: {
-      label: 'Label'
+    map: 'Textfield'
+  },
+  radio: {
+    type: 'RadioGroup',
+    map: 'Radio',
+    options: {
+      type: 'Radio'
     }
   }
 };
-
 
 export default mdl;

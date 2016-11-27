@@ -20,6 +20,49 @@ const fields = [
       ],
       bot: {}
     }
+  }, {
+    id: 2,
+    name: 'title',
+    type: 'textfield',
+    props: {
+      label: 'Hello World!!'
+    },
+    rules: {
+      validation: [
+        {
+          rule: 'mandatory',
+          value: true
+        }
+      ],
+      bot: {}
+    }
+  }, {
+    id: 3,
+    name: 'title',
+    type: 'radio',
+    options: [{
+      id: 1,
+      value: 'Male',
+      selected: true
+    }, {
+      id: 2,
+      value: 'Female',
+      selected: false
+    }],
+    props: {
+      name: 'gender',
+      container: 'ul',
+      childContainer: 'li'
+    },
+    rules: {
+      validation: [
+        {
+          rule: 'mandatory',
+          value: true
+        }
+      ],
+      bot: {}
+    }
   }
 ];
 
@@ -29,7 +72,7 @@ export const Aztec = (props) => {
     <div>
       {
         fields.map((field, index) => (
-          <DynamicComponent key={index} component={mdl[field.type].type} library={MDL} type="mdl" attributes={field.props} />
+          <DynamicComponent key={index} component={mdl[field.type].type} map={mdl[field.type].map} option={mdl[field.type].options ? mdl[field.type].options.type : '' } control={field} library={MDL} attributes={field.props} />
         ))
       }
     </div>

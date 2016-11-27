@@ -102,6 +102,7 @@
     "test"
   ],
   "dependencies": {
+    "lodash": "^4.17.2",
     "react-mdl": "^1.9.0"
   }
 }
