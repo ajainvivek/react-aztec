@@ -37,17 +37,16 @@ const mdl = [
     type: 'radio',
     options: [{
       id: 1,
-      value: 'Male',
-      selected: true
+      value: 'Male'
     }, {
       id: 2,
-      value: 'Female',
-      selected: false
+      value: 'Female'
     }],
     props: {
       name: 'gender',
       container: 'ul',
-      childContainer: 'li'
+      childContainer: 'li',
+      value: 'Female'
     },
     rules: {
       validation: [

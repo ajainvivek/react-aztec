@@ -19,6 +19,9 @@ module.exports = {
     "no-use-before-define": 0,
     "react/sort-comp": 0,
     "react/no-multi-comp": 0,
-    "react/require-extension": 0
+    "react/require-extension": 0,
+    "react/jsx-uses-react": 0,
+    "react/forbid-prop-types": 0,
+    "react/no-unused-prop-types": 0
   }
 };

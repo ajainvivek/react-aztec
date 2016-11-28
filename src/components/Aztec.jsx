@@ -24,7 +24,7 @@ export const Aztec = (props) => {
     <div>
       {
         props.data.map((field, index) => (
-          <DynamicComponent key={index} component={config.map[field.type].type} map={config.map[field.type].map} option={config.map[field.type].options ? config.map[field.type].options.type : '' } control={field} library={config.modules} attributes={field.props} />
+          <DynamicComponent key={index} component={config.map[field.type].type} map={config.map[field.type].map} option={config.map[field.type].options ? config.map[field.type].options.type : '' } control={field} library={config.modules} attributes={field.props} rules={field.rules} onChange={props.onChange} onBlur={props.onBlur} onFocus={props.onFocus} />
         ))
       }
     </div>
@@ -33,6 +33,9 @@ export const Aztec = (props) => {
 
 Aztec.propTypes = {
   data: PropTypes.array.isRequired,
-  library: PropTypes.string
+  library: PropTypes.string,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func
 };
 export default Aztec;

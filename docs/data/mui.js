@@ -44,10 +44,56 @@ const mui = [
       type: 'password'
     },
     rules: {
+      isDisplayText: true,
       validation: [
         {
           rule: 'mandatory',
           value: true
+        }
+      ],
+      bot: {}
+    }
+  }, {
+    id: 4,
+    type: 'radio',
+    props: {
+      name: 'shipSpeed',
+      defaultSelected: 'not_light'
+    },
+    options: [
+      {
+        value: 'light',
+        label: 'Simple'
+      },
+      {
+        value: 'not_light',
+        label: 'Selected by default'
+      }
+    ],
+    rules: {
+      validation: [
+        {
+          rule: 'mandatory',
+          value: true
+        }
+      ],
+      bot: {}
+    }
+  }, {
+    id: 5,
+    type: 'textfield',
+    props: {
+      id: 'email-field',
+      hintText: 'Enter email...',
+      floatingLabelText: 'Email',
+      type: 'email'
+    },
+    rules: {
+      isDisplayText: true,
+      validation: [
+        {
+          rule: 'email',
+          message: 'Please enter valid email'
         }
       ],
       bot: {}

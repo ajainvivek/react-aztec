@@ -10,7 +10,8 @@ export default () => (
     <ReactSpecimen span={10}>
       {`
         <div>
-          <Aztec data={MUIData} library='MUI' />
+          <Aztec data={MUIData} library='MUI' onChange={triggerChange}
+           onBlur={triggerBlur} onFocus={triggerFocus} />
         </div>
       `}
     </ReactSpecimen>
