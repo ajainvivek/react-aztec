@@ -1,78 +1,30 @@
 import React, { PropTypes } from 'react';
 import * as MDL from 'react-mdl';
+import * as MUI from 'material-ui';
 import { DynamicComponent } from './DynamicComponent';
 import mdl from './../config/mdl';
+import mui from './../config/mui';
 
-const fields = [
-  {
-    id: 1,
-    name: 'title',
-    type: 'textfield',
-    props: {
-      label: 'Text'
-    },
-    rules: {
-      validation: [
-        {
-          rule: 'mandatory',
-          value: true
-        }
-      ],
-      bot: {}
-    }
-  }, {
-    id: 2,
-    name: 'title',
-    type: 'textfield',
-    props: {
-      label: 'Hello World!!'
-    },
-    rules: {
-      validation: [
-        {
-          rule: 'mandatory',
-          value: true
-        }
-      ],
-      bot: {}
-    }
-  }, {
-    id: 3,
-    name: 'title',
-    type: 'radio',
-    options: [{
-      id: 1,
-      value: 'Male',
-      selected: true
-    }, {
-      id: 2,
-      value: 'Female',
-      selected: false
-    }],
-    props: {
-      name: 'gender',
-      container: 'ul',
-      childContainer: 'li'
-    },
-    rules: {
-      validation: [
-        {
-          rule: 'mandatory',
-          value: true
-        }
-      ],
-      bot: {}
-    }
+const LIBMap = {
+  MDL: {
+    map: mdl,
+    modules: MDL
+  },
+  MUI: {
+    map: mui,
+    modules: MUI
   }
-];
+};
+
 
 /** Aztec */
 export const Aztec = (props) => {
+  const config = LIBMap[props.library];
   return (
     <div>
       {
-        fields.map((field, index) => (
-          <DynamicComponent key={index} component={mdl[field.type].type} map={mdl[field.type].map} option={mdl[field.type].options ? mdl[field.type].options.type : '' } control={field} library={MDL} attributes={field.props} />
+        props.data.map((field, index) => (
+          <DynamicComponent key={index} component={config.map[field.type].type} map={config.map[field.type].map} option={config.map[field.type].options ? config.map[field.type].options.type : '' } control={field} library={config.modules} attributes={field.props} />
         ))
       }
     </div>
@@ -80,6 +32,7 @@ export const Aztec = (props) => {
 };
 
 Aztec.propTypes = {
-
+  data: PropTypes.array.isRequired,
+  library: PropTypes.string
 };
 export default Aztec;

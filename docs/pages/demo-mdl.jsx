@@ -7,9 +7,11 @@ export default () => (
 
     <hr />
 
-    <ReactSpecimen span={3}>
+    <ReactSpecimen span={10}>
       {`
-        <Aztec />
+        <div>
+          <Aztec data={MDLData} library='MDL' />
+        </div>
       `}
     </ReactSpecimen>
   </Page>
