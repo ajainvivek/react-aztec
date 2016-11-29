@@ -1,6 +1,6 @@
 # React Aztec
 
-Build dynamic forms driven via json using MaterialUI
+Build dynamic forms using MaterialUI
 
 ## Basic Usage
 
