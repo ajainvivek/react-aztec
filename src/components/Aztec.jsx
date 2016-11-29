@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import _ from 'lodash';
 import * as MUI from 'material-ui';
 import { Row, Col } from 'pui-react-grids';
-import './../css/grid.css';
+
 import { DynamicComponent } from './DynamicComponent';
 import { generateLayout } from './../helpers/filter';
 import mui from './../config/mui';

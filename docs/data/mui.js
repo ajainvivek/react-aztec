@@ -10,17 +10,17 @@ const mui = [
     layout: {
       row: 1,
       xs: {
-        col: 12,
+        col: 24,
         hide: true
       },
       sm: {
-        col: 12
+        col: 24
       },
       md: {
-        col: 6
+        col: 12
       },
       lg: {
-        col: 4
+        col: 8
       }
     },
     rules: {
@@ -44,17 +44,17 @@ const mui = [
     layout: {
       row: 1,
       xs: {
-        col: 12,
+        col: 24,
         hide: true
       },
       sm: {
-        col: 12
+        col: 24
       },
       md: {
-        col: 6
+        col: 12
       },
       lg: {
-        col: 4
+        col: 8
       }
     },
     rules: {
@@ -72,17 +72,17 @@ const mui = [
     layout: {
       row: 2,
       xs: {
-        col: 12,
+        col: 24,
         hide: true
       },
       sm: {
-        col: 12
+        col: 24
       },
       md: {
-        col: 6
+        col: 12
       },
       lg: {
-        col: 4
+        col: 8
       }
     },
     props: {
@@ -102,7 +102,7 @@ const mui = [
       bot: {}
     }
   }, {
-    id: 4,
+    id: 8,
     type: 'radio',
     props: {
       name: 'shipSpeed',
@@ -111,17 +111,17 @@ const mui = [
     layout: {
       row: 2,
       xs: {
-        col: 12,
+        col: 24,
         hide: true
       },
       sm: {
-        col: 12
+        col: 24
       },
       md: {
-        col: 6
+        col: 12
       },
       lg: {
-        col: 4
+        col: 8
       }
     },
     options: [
@@ -155,17 +155,17 @@ const mui = [
     layout: {
       row: 3,
       xs: {
-        col: 12,
+        col: 24,
         hide: true
       },
       sm: {
-        col: 12
+        col: 24
       },
       md: {
-        col: 6
+        col: 12
       },
       lg: {
-        col: 4
+        col: 8
       }
     },
     rules: {
