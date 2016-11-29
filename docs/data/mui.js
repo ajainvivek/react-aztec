@@ -7,6 +7,22 @@ const mui = [
       floatingLabelText: 'Username',
       hintText: 'Enter Userame...'
     },
+    layout: {
+      row: 1,
+      xs: {
+        col: 12,
+        hide: true
+      },
+      sm: {
+        col: 12
+      },
+      md: {
+        col: 6
+      },
+      lg: {
+        col: 4
+      }
+    },
     rules: {
       validation: [
         {
@@ -25,6 +41,22 @@ const mui = [
       defaultValue: 'XXX-XXX-XXXX',
       floatingLabelText: 'Mobile Number'
     },
+    layout: {
+      row: 1,
+      xs: {
+        col: 12,
+        hide: true
+      },
+      sm: {
+        col: 12
+      },
+      md: {
+        col: 6
+      },
+      lg: {
+        col: 4
+      }
+    },
     rules: {
       validation: [
         {
@@ -37,6 +69,22 @@ const mui = [
   }, {
     id: 3,
     type: 'textfield',
+    layout: {
+      row: 2,
+      xs: {
+        col: 12,
+        hide: true
+      },
+      sm: {
+        col: 12
+      },
+      md: {
+        col: 6
+      },
+      lg: {
+        col: 4
+      }
+    },
     props: {
       id: 'password-field',
       hintText: 'Enter Password...',
@@ -59,6 +107,22 @@ const mui = [
     props: {
       name: 'shipSpeed',
       defaultSelected: 'not_light'
+    },
+    layout: {
+      row: 2,
+      xs: {
+        col: 12,
+        hide: true
+      },
+      sm: {
+        col: 12
+      },
+      md: {
+        col: 6
+      },
+      lg: {
+        col: 4
+      }
     },
     options: [
       {
@@ -87,6 +151,22 @@ const mui = [
       hintText: 'Enter email...',
       floatingLabelText: 'Email',
       type: 'email'
+    },
+    layout: {
+      row: 3,
+      xs: {
+        col: 12,
+        hide: true
+      },
+      sm: {
+        col: 12
+      },
+      md: {
+        col: 6
+      },
+      lg: {
+        col: 4
+      }
     },
     rules: {
       isDisplayText: true,

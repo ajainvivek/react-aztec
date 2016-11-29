@@ -99,7 +99,8 @@ if (TARGET === 'start') {
       loaders: [
         {
           test: /\.css$/,
-          loaders: ['style', 'css']
+          loader: 'style!css?modules',
+          include: /react-mdl|purecss|flexboxgrid|./
         },
         {
           test: /\.jsx?$/,

@@ -6,6 +6,21 @@ const mdl = [
     props: {
       label: 'Text'
     },
+    layout: {
+      row: 1,
+      xs: {
+        hide: true
+      },
+      sm: {
+        col: 12
+      },
+      md: {
+        col: 6
+      },
+      lg: {
+        col: 4
+      }
+    },
     rules: {
       validation: [
         {
@@ -21,6 +36,21 @@ const mdl = [
     type: 'textfield',
     props: {
       label: 'Hello World!!'
+    },
+    layout: {
+      row: 1,
+      xs: {
+        hide: true
+      },
+      sm: {
+        col: 12
+      },
+      md: {
+        col: 6
+      },
+      lg: {
+        col: 4
+      }
     },
     rules: {
       validation: [
