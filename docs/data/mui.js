@@ -106,7 +106,10 @@ const mui = [
     type: 'radio',
     props: {
       name: 'shipSpeed',
-      defaultSelected: 'not_light'
+      defaultSelected: 'not_light',
+      style: {
+        marginTop: '10px'
+      }
     },
     layout: {
       row: 2,

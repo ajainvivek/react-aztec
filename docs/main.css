@@ -3,3 +3,15 @@
 }
 
 /* TODO: insert main styles of your demo here */
+
+.full-width {
+  width: 100%;
+}
+
+.codeblock {
+  margin-top: 10px;
+}
+
+.codeblock .syntax {
+  margin-top: 10px;
+}
