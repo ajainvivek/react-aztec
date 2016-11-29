@@ -4,10 +4,6 @@ import ReactDOM from 'react-dom';
 import GithubCorner from 'react-github-corner';
 import { Catalog, CodeSpecimen, ReactSpecimen } from 'catalog';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import * as MDL from 'react-mdl';
-
-import 'react-mdl/extra/material.css';
-import 'react-mdl/extra/material';
 import 'purecss/build/pure.css';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
@@ -66,8 +62,8 @@ ReactDOM.render(
     <div>
       <GithubCorner
         href={`https://github.com/${project}`}
-        bannerColor="#fff"
-        octoColor="#000"
+        bannerColor="#1F2532"
+        octoColor="#f36"
         width={80}
         height={80}
         direction="right"
