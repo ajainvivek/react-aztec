@@ -1,18 +1,12 @@
 import React, { PropTypes } from 'react';
 import _ from 'lodash';
-import * as MDL from 'react-mdl';
 import * as MUI from 'material-ui';
 import { Grid, Row, Col, xs, sm, md, lg } from 'react-flexbox-grid/lib/index';
 import { DynamicComponent } from './DynamicComponent';
 import { generateLayout } from './../helpers/filter';
-import mdl from './../config/mdl';
 import mui from './../config/mui';
 
 const LIBMap = {
-  MDL: {
-    map: mdl,
-    modules: MDL
-  },
   MUI: {
     map: mui,
     modules: MUI

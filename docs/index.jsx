@@ -14,9 +14,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import { Aztec } from './../src';
 import './main.css';
 import '../style.css';
-import demoMDL from './pages/demo-mdl';
 import demoMUI from './pages/demo-mui';
-import MDLData from './data/mdl';
 import MUIData from './data/mui';
 
 
@@ -59,15 +57,6 @@ const pages = [
       triggerBlur
     },
     component: demoMUI
-  },
-  {
-    path: '/mdl',
-    title: 'Demo using Material Design Lite',
-    imports: {
-      Aztec,
-      MDLData
-    },
-    component: demoMDL
   }
 ];
 

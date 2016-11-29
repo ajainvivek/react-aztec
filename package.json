@@ -107,7 +107,6 @@
     "flexboxgrid": "^6.3.1",
     "lodash": "^4.17.2",
     "react-flexbox-grid": "^0.10.2",
-    "react-mdl": "^1.9.0",
     "validator": "^6.1.0"
   }
 }
