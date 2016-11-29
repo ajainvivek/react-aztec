@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react';
 import _ from 'lodash';
 import * as MUI from 'material-ui';
-import { Grid, Row, Col, xs, sm, md, lg } from 'react-flexbox-grid/lib/index';
+import { Row, Col } from 'pui-react-grids';
+import './../css/grid.css';
 import { DynamicComponent } from './DynamicComponent';
 import { generateLayout } from './../helpers/filter';
 import mui from './../config/mui';
@@ -18,7 +19,7 @@ export const Aztec = (props) => {
   const config = LIBMap[props.library];
   const layout = generateLayout(props.data);
   return (
-    <Grid>
+    <div>
       {
         layout.wrows.map((row, i) => (
           <Row key={i}>
@@ -32,7 +33,7 @@ export const Aztec = (props) => {
           </Row>
         ))
       }
-    </Grid>
+    </div>
   );
 };
 
