@@ -16,7 +16,7 @@ class TextField extends React.Component {
     let isValid = true;
     if (this.props.rules.validation) {
       for (const data of this.props.rules.validation) {
-        isValid = validation[data.rule](value);
+        isValid = validation[data.rule](value, data.value);
         if (!isValid) {
           return {
             isValid: false,

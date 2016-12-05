@@ -61,7 +61,7 @@ const mui = [
       validation: [
         {
           rule: 'mandatory',
-          value: true
+          message: 'Please fill the field'
         }
       ],
       bot: {}
@@ -219,8 +219,12 @@ const mui = [
       }
     },
     rules: {
-      isDisplayText: true,
       validation: [
+        {
+          rule: 'equals',
+          value: 'Never',
+          message: 'Frequency should be equal to Never'
+        }
       ],
       bot: {}
     }
