@@ -228,6 +228,48 @@ const mui = [
       ],
       bot: {}
     }
+  },
+  {
+    id: 7,
+    type: 'checkbox',
+    props: {
+      id: 'checkbox-field',
+      selected: 'Never',
+      style: {
+        width: '100%'
+      }
+    },
+    options: [
+      {
+        label: 'Science',
+        defaultChecked: true
+      },
+      {
+        label: 'Maths',
+        defaultChecked: false
+      }
+    ],
+    layout: {
+      row: 5,
+      xs: {
+        col: 24,
+        hide: true
+      },
+      sm: {
+        col: 24
+      },
+      md: {
+        col: 24
+      },
+      lg: {
+        col: 24
+      }
+    },
+    rules: {
+      validation: [
+      ],
+      bot: {}
+    }
   }
 ];
 

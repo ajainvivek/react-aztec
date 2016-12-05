@@ -16,6 +16,13 @@ const mui = {
     options: {
       type: 'MenuItem'
     }
+  },
+  checkbox: {
+    type: 'Checkbox',
+    map: 'Checkbox',
+    options: {
+      type: 'Checkbox'
+    }
   }
 };
 
