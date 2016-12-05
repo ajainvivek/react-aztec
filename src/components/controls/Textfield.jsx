@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import validation from './../../helpers/validation';
 
 /** Textfield Component */
-class Textfield extends React.Component {
+class TextField extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -63,7 +63,7 @@ class Textfield extends React.Component {
   }
 }
 
-Textfield.propTypes = {
+TextField.propTypes = {
   library: PropTypes.object,
   component: PropTypes.string.isRequired,
   attributes: PropTypes.object,
@@ -74,4 +74,4 @@ Textfield.propTypes = {
   onFocus: PropTypes.func,
   onBlur: PropTypes.func
 };
-export default Textfield;
+export default TextField;

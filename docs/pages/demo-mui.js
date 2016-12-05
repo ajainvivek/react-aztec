@@ -14,6 +14,7 @@ class Demo extends React.Component {
   componentDidMount() {
   }
   render() {
+    console.log(FormData)
     return (
       <Page>
         <h2>Dynamic Forms</h2>

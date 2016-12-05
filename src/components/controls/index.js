@@ -1,9 +1,11 @@
-import Textfield from './Textfield';
+import TextField from './TextField';
 import Radio from './Radio';
+import SelectField from './SelectField';
 
 const Controls = {
-  Textfield,
-  Radio
+  TextField,
+  Radio,
+  SelectField
 };
 
 export default Controls;

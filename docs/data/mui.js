@@ -181,6 +181,49 @@ const mui = [
       ],
       bot: {}
     }
+  }, {
+    id: 6,
+    type: 'selectfield',
+    props: {
+      id: 'select-field',
+      floatingLabelText: 'Frequency',
+      selected: 'Never',
+      style: {
+        width: '100%'
+      }
+    },
+    options: [
+      {
+        value: 'Never',
+        primaryText: 'Never'
+      },
+      {
+        value: 'Every Night',
+        primaryText: 'Every Night'
+      }
+    ],
+    layout: {
+      row: 4,
+      xs: {
+        col: 24,
+        hide: true
+      },
+      sm: {
+        col: 24
+      },
+      md: {
+        col: 24
+      },
+      lg: {
+        col: 24
+      }
+    },
+    rules: {
+      isDisplayText: true,
+      validation: [
+      ],
+      bot: {}
+    }
   }
 ];
 
