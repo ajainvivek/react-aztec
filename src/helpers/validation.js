@@ -6,6 +6,9 @@ const validation = {
   },
   equals(value, comparison) {
     return validator.equals(value, comparison);
+  },
+  mandatory(value) {
+    return !validator.isEmpty(value);
   }
 };
 

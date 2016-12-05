@@ -27,7 +27,7 @@ const mui = [
       validation: [
         {
           rule: 'mandatory',
-          value: true
+          message: 'Name is required!!'
         }
       ],
       bot: {}
