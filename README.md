@@ -1,6 +1,11 @@
-# React Aztec
+<h1 align="center">
+  <br>
+  <img src="http://i.imgur.com/cNIJLXW.png" alt="react-aztec" width="200">
+  <br>
+  <br>
+</h1>
 
-Build dynamic forms using MaterialUI
+Build dynamic forms using Material UI
 
 > Check demo [React-Aztec](http://ajainvivek.github.io/react-aztec/#/simpleform)
 
