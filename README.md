@@ -1,5 +1,4 @@
 <h1 align="center">
-  <br>
   <img src="http://i.imgur.com/cNIJLXW.png" alt="react-aztec" width="200">
   <br>
   <br>
