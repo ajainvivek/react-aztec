@@ -43,7 +43,7 @@ const pages = [
     component: require('../README.md')
   },
   {
-    path: '/mui',
+    path: '/simpleform',
     title: 'Simple Form',
     imports: {
       Aztec,
