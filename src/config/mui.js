@@ -30,6 +30,10 @@ const mui = {
     options: {
       type: 'Toggle'
     }
+  },
+  datepicker: {
+    type: 'DatePicker',
+    map: 'DatePicker'
   }
 };
 
