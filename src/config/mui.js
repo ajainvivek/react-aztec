@@ -34,6 +34,10 @@ const mui = {
   datepicker: {
     type: 'DatePicker',
     map: 'DatePicker'
+  },
+  timepicker: {
+    type: 'TimePicker',
+    map: 'TimePicker'
   }
 };
 

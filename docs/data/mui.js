@@ -339,6 +339,35 @@ const mui = [
       ],
       bot: {}
     }
+  },
+  {
+    id: 9,
+    type: 'timepicker',
+    props: {
+      id: 'timepicker-field',
+      hintText: '12hr Format'
+    },
+    layout: {
+      row: 6,
+      xs: {
+        col: 24,
+        hide: true
+      },
+      sm: {
+        col: 24
+      },
+      md: {
+        col: 24
+      },
+      lg: {
+        col: 24
+      }
+    },
+    rules: {
+      validation: [
+      ],
+      bot: {}
+    }
   }
 ];
 

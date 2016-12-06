@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 import validation from './../../helpers/validation';
 
-/** DatePicker Component */
-class DatePicker extends React.Component {
+/** TimePicker Component */
+class TimePicker extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -70,12 +70,12 @@ class DatePicker extends React.Component {
   }
   render() {
     const props = this.props;
-    const DATEPICKER = props.library[props.component];
-    return <DATEPICKER {...props.attributes} errorText={this.state.errorText} onChange={this.onChange} onFocus={this.onFocus} onShow={this.onShow} onDismiss={this.onDismiss} onTouchTap={this.onTouchTap} />;
+    const TIMEPICKER = props.library[props.component];
+    return <TIMEPICKER {...props.attributes} errorText={this.state.errorText} onChange={this.onChange} onFocus={this.onFocus} onShow={this.onShow} onDismiss={this.onDismiss} onTouchTap={this.onTouchTap} />;
   }
 }
 
-DatePicker.propTypes = {
+TimePicker.propTypes = {
   library: PropTypes.object,
   component: PropTypes.string.isRequired,
   attributes: PropTypes.object,
@@ -88,4 +88,4 @@ DatePicker.propTypes = {
   onShow: PropTypes.func,
   onTouchTap: PropTypes.func
 };
-export default DatePicker;
+export default TimePicker;

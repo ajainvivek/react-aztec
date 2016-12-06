@@ -4,6 +4,7 @@ import SelectField from './SelectField';
 import Checkbox from './Checkbox';
 import Toggle from './Toggle';
 import DatePicker from './DatePicker';
+import TimePicker from './TimePicker';
 
 const Controls = {
   TextField,
@@ -11,7 +12,8 @@ const Controls = {
   SelectField,
   Checkbox,
   Toggle,
-  DatePicker
+  DatePicker,
+  TimePicker
 };
 
 export default Controls;
