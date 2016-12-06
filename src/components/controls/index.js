@@ -5,6 +5,7 @@ import Checkbox from './Checkbox';
 import Toggle from './Toggle';
 import DatePicker from './DatePicker';
 import TimePicker from './TimePicker';
+import AutoComplete from './AutoComplete';
 
 const Controls = {
   TextField,
@@ -13,7 +14,8 @@ const Controls = {
   Checkbox,
   Toggle,
   DatePicker,
-  TimePicker
+  TimePicker,
+  AutoComplete
 };
 
 export default Controls;

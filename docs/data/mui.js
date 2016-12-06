@@ -368,6 +368,46 @@ const mui = [
       ],
       bot: {}
     }
+  },
+  {
+    id: 10,
+    type: 'autocomplete',
+    props: {
+      id: 'autocomplete-field',
+      floatingLabelText: 'Type "r", case insensitive',
+      dataSource: [
+        'Red',
+        'Orange',
+        'Yellow',
+        'Green',
+        'Blue',
+        'Purple',
+        'Black',
+        'White'
+      ],
+      filter: 'caseInsensitiveFilter'
+    },
+    layout: {
+      row: 6,
+      xs: {
+        col: 24,
+        hide: true
+      },
+      sm: {
+        col: 24
+      },
+      md: {
+        col: 24
+      },
+      lg: {
+        col: 24
+      }
+    },
+    rules: {
+      validation: [
+      ],
+      bot: {}
+    }
   }
 ];
 

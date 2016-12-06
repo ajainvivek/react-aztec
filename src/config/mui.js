@@ -38,6 +38,11 @@ const mui = {
   timepicker: {
     type: 'TimePicker',
     map: 'TimePicker'
+  },
+  autocomplete: {
+    type: 'AutoComplete',
+    map: 'AutoComplete',
+    filter: 'AutoComplete'
   }
 };
 
