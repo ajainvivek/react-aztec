@@ -47,7 +47,7 @@ export const Aztec = (props) => {
 
 Aztec.propTypes = {
   data: PropTypes.array.isRequired,
-  library: PropTypes.string,
+  library: PropTypes.object,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,

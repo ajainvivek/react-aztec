@@ -4,27 +4,46 @@ import JSONTree from 'react-json-tree';
 import Highlight from 'react-highlight';
 import 'highlight.js/styles/zenburn.css';
 import * as MUI from 'material-ui';
+import RaisedButton from 'material-ui/RaisedButton';
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 
 import { Aztec } from './../../src';
-import FormData from './../data/mui';
+import JSONData from './../data/mui';
 
 
 /** Demo Component */
 class Demo extends React.Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      formData: {}
+    };
+    this.onUpdate = this.onUpdate.bind(this);
+  }
+  onUpdate(...args) {
+    const control = args[0];
+    const formData = this.state.formData;
+    if (control.type === 'textfield') {
+      formData[control.id] = args[2];
+    }
+    this.setState({
+      formData
+    });
+  }
+  onSubmit() {
+    alert('You are done!!!');
   }
   render() {
     const sourceCode = `
 import * as MUI from 'material-ui';
 // Refer JSON data on the right side column
-import FormData from 'src/path';
+import JSONData from 'src/path';
 
 class SimpleForm extends React.Component {
   render() {
     return (
       <div>
-        <Aztec data={FormData} library={MUI}/>
+        <Aztec data={JSONData} library={MUI}/>
       </div>
     )
   }
@@ -38,7 +57,8 @@ class SimpleForm extends React.Component {
 
         <div className="full-width codedemo row">
           <div className="col-md-24">
-            <Aztec data={FormData} library={MUI} />
+            <Aztec data={JSONData} library={MUI} onChange={this.onUpdate} />
+            <RaisedButton label="Complete Survey" primary onClick={this.onSubmit} />
           </div>
         </div>
 
@@ -60,7 +80,7 @@ class SimpleForm extends React.Component {
                   </div>
                 </TableRowColumn>
                 <TableRowColumn>
-                  <JSONTree data={FormData} />
+                  <JSONTree data={JSONData} />
                 </TableRowColumn>
               </TableRow>
             </TableBody>
