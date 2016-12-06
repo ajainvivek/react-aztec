@@ -23,6 +23,13 @@ const mui = {
     options: {
       type: 'Checkbox'
     }
+  },
+  toggle: {
+    type: 'Toggle',
+    map: 'Toggle',
+    options: {
+      type: 'Toggle'
+    }
   }
 };
 

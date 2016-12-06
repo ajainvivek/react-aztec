@@ -234,7 +234,6 @@ const mui = [
     type: 'checkbox',
     props: {
       id: 'checkbox-field',
-      selected: 'Never',
       style: {
         width: '100%'
       }
@@ -251,6 +250,47 @@ const mui = [
     ],
     layout: {
       row: 5,
+      xs: {
+        col: 24,
+        hide: true
+      },
+      sm: {
+        col: 24
+      },
+      md: {
+        col: 24
+      },
+      lg: {
+        col: 24
+      }
+    },
+    rules: {
+      validation: [
+      ],
+      bot: {}
+    }
+  },
+  {
+    id: 7,
+    type: 'toggle',
+    props: {
+      id: 'toggle-field',
+      style: {
+        width: '100%'
+      }
+    },
+    options: [
+      {
+        label: 'Gender',
+        defaultToggled: true
+      },
+      {
+        label: 'Private',
+        defaultToggled: false
+      }
+    ],
+    layout: {
+      row: 6,
       xs: {
         col: 24,
         hide: true
