@@ -14,6 +14,7 @@ Refer [Material-UI](http://www.material-ui.com/) documentation for components pr
 
 ```javascript
 import * as MUI from 'material-ui';
+import { Aztec } from 'react-aztec';
 
 const formData = [
   {
@@ -42,6 +43,7 @@ class SimpleForm extends React.Component {
 
 ```javascript
 import * as MUI from 'material-ui';
+import { Aztec } from 'react-aztec';
 
 const formData = [
   {
@@ -80,6 +82,7 @@ Aztec uses bootstrap 24 column grid layout
 
 ```javascript
 import * as MUI from 'material-ui';
+import { Aztec } from 'react-aztec';
 
 const formData = [
   {

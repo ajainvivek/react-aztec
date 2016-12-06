@@ -35,6 +35,7 @@ class Demo extends React.Component {
   }
   render() {
     const sourceCode = `
+import { Aztec } from 'react-aztec';
 import * as MUI from 'material-ui';
 // Refer JSON data on the right side column
 import JSONData from 'src/path';
