@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import _ from 'lodash';
-import * as MUI from 'material-ui';
 import { Row, Col } from 'pui-react-grids';
 
 import { DynamicComponent } from './DynamicComponent';
@@ -9,15 +8,15 @@ import mui from './../config/mui';
 
 const LIBMap = {
   MUI: {
-    map: mui,
-    modules: MUI
+    map: mui
   }
 };
 
 /** Aztec */
 export const Aztec = (props) => {
-  const config = LIBMap[props.library];
+  const config = LIBMap.MUI;
   const layout = generateLayout(props.data);
+  config.modules = props.library;
   return (
     <div>
       {
@@ -33,6 +32,15 @@ export const Aztec = (props) => {
           </Row>
         ))
       }
+      {
+        layout.worows.map((field, index) => (
+          <div key={index} style={field.style} className={field.className}>
+            {
+              <DynamicComponent component={config.map[field.type].type} map={config.map[field.type].map} option={config.map[field.type].options ? config.map[field.type].options.type : '' } control={field} library={config.modules} attributes={field.props} rules={field.rules} onChange={props.onChange} onBlur={props.onBlur} onFocus={props.onFocus} onCheck={props.onCheck} onToggle={props.onToggle} onShow={props.onShow} onDismiss={props.onDismiss} onTouchTap={props.onTouchTap} />
+            }
+          </div>
+        ))
+      }
     </div>
   );
 };
@@ -42,6 +50,11 @@ Aztec.propTypes = {
   library: PropTypes.string,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
-  onBlur: PropTypes.func
+  onBlur: PropTypes.func,
+  onTouchTap: PropTypes.func,
+  onCheck: PropTypes.func,
+  onToggle: PropTypes.onToggle,
+  onShow: PropTypes.onShow,
+  onDismiss: PropTypes.onDismiss
 };
 export default Aztec;

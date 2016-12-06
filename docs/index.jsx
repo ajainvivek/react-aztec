@@ -44,7 +44,7 @@ const pages = [
   },
   {
     path: '/mui',
-    title: 'Demo using Material UI',
+    title: 'Simple Form',
     imports: {
       Aztec,
       MUIData,

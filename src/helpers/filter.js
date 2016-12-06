@@ -7,22 +7,25 @@ const filter = {
       worows: []
     };
     // All Items
-    const wrows = data;
+    const wrows = _.clone(data);
     // Remove Without Rows
     const worows = _.remove(wrows, (item) => {
-      return item.layout.row === undefined;
+      const isLayout = item.layout ? item.layout.row : item.layout;
+      return isLayout === undefined;
     });
-    layout.worows.concat(worows); // Concat all items without rows
+    layout.worows = worows; // Concat all items without rows
     // All row indices
     const rowIndex = _.map(wrows, 'layout.row');
     const uniqIndex = _.uniq(rowIndex);
     const sortedIndex = _.sortBy(uniqIndex);
 
     _.each(sortedIndex, (value) => {
-      let rows = [];
+      const rows = [];
       _.each(wrows, (item) => {
-        if (item.layout.row === value) {
-          rows.push(item);
+        if (item.layout) {
+          if (item.layout.row === value) {
+            rows.push(item);
+          }
         }
       });
       layout.wrows.push(rows);

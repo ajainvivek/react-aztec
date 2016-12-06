@@ -16,15 +16,18 @@ class Radio extends React.Component {
     const RADIO = this.props.library[props.component];
     const OPTION = this.props.library[props.option];
     return (
-      <RADIO {...props.attributes} onChange={this.onChange}>
-        {this.props.control.options.map((option, index) => {
-          return (
-            <OPTION {...option} key={index}>
-              {}
-            </OPTION>
-          );
-        })}
-      </RADIO>
+      <div>
+        <h3 style={props.attributes.titleStyle}>{props.attributes.title}</h3>
+        <RADIO {...props.attributes} onChange={this.onChange}>
+          {this.props.control.options.map((option, index) => {
+            return (
+              <OPTION {...option} key={index}>
+                {}
+              </OPTION>
+            );
+          })}
+        </RADIO>
+      </div>
     );
   }
 }

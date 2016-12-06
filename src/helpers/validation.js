@@ -9,6 +9,15 @@ const validation = {
   },
   mandatory(value) {
     return !validator.isEmpty(value);
+  },
+  mobile(value, locale) {
+    return validator.isMobilePhone(value, locale);
+  },
+  lowercase(value) {
+    return validator.isLowercase(value);
+  },
+  uppercase(value) {
+    return validator.isUppercase(value);
   }
 };
 

@@ -15,3 +15,7 @@
 .codeblock .syntax {
   margin-top: 10px;
 }
+
+.syntax pre {
+  font-size: 12px !important;
+}

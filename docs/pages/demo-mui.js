@@ -1,8 +1,9 @@
 import React from 'react';
 import { Page, ReactSpecimen } from 'catalog';
 import JSONTree from 'react-json-tree';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { docco } from 'react-syntax-highlighter/dist/styles';
+import Highlight from 'react-highlight';
+import 'highlight.js/styles/zenburn.css';
+import * as MUI from 'material-ui';
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 
 import { Aztec } from './../../src';
@@ -14,16 +15,30 @@ class Demo extends React.Component {
   componentDidMount() {
   }
   render() {
-    console.log(FormData)
+    const sourceCode = `
+import * as MUI from 'material-ui';
+// Refer JSON data on the right side column
+import FormData from 'src/path';
+
+class SimpleForm extends React.Component {
+  render() {
+    return (
+      <div>
+        <Aztec data={FormData} library={MUI}/>
+      </div>
+    )
+  }
+}
+    `
     return (
       <Page>
-        <h2>Dynamic Forms</h2>
+        <h2>Hey stranger, I wanna get to know you better!</h2>
 
         <hr />
 
         <div className="full-width codedemo row">
           <div className="col-md-24">
-            <Aztec data={FormData} library="MUI" />
+            <Aztec data={FormData} library={MUI} />
           </div>
         </div>
 
@@ -31,7 +46,7 @@ class Demo extends React.Component {
           <Table>
             <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
               <TableRow>
-                <TableHeaderColumn>Component</TableHeaderColumn>
+                <TableHeaderColumn>Source Code</TableHeaderColumn>
                 <TableHeaderColumn>JSON Schema</TableHeaderColumn>
               </TableRow>
             </TableHeader>
@@ -39,7 +54,9 @@ class Demo extends React.Component {
               <TableRow>
                 <TableRowColumn>
                   <div className="syntax">
-                    <SyntaxHighlighter language="html" style={docco}>{`<Aztec data={FormData} library='MUI'/>`}</SyntaxHighlighter>
+                    <Highlight className="javascript">
+                      {sourceCode}
+                    </Highlight>
                   </div>
                 </TableRowColumn>
                 <TableRowColumn>

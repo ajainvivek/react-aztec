@@ -16,6 +16,7 @@ class Checkbox extends React.Component {
     const OPTION = this.props.library[props.option];
     return (
       <div {...props.attributes}>
+        <h3 style={props.attributes.titleStyle}>{props.attributes.title}</h3>
         {this.props.control.options.map((option, index) => {
           return (
             <OPTION {...option} key={index} onCheck={this.onCheck}>
