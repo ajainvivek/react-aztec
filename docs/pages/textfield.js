@@ -8,11 +8,11 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 
 import { Aztec } from './../../src';
-import JSONData from './../data/simpleform';
+import JSONData from './../data/textfield';
 
 
 /** Demo Component */
-class Demo extends React.Component {
+class Textfield extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,9 +30,6 @@ class Demo extends React.Component {
       formData
     });
   }
-  onSubmit() {
-    alert('You are done!!!');
-  }
   render() {
     const sourceCode = `
 import { Aztec } from 'react-aztec';
@@ -40,7 +37,7 @@ import * as MUI from 'material-ui';
 // Refer JSON data on the right side column
 import JSONData from 'src/path';
 
-class SimpleForm extends React.Component {
+class Texfield extends React.Component {
   render() {
     return (
       <div>
@@ -52,14 +49,13 @@ class SimpleForm extends React.Component {
     `
     return (
       <Page>
-        <h2>Hey stranger, I wanna get to know you better!</h2>
+        <h2>Textfields</h2>
 
         <hr />
 
         <div className="full-width codedemo row">
           <div className="col-md-24">
             <Aztec data={JSONData} library={MUI} onChange={this.onUpdate} />
-            <RaisedButton label="Complete Survey" primary onClick={this.onSubmit} />
           </div>
         </div>
 
@@ -92,4 +88,4 @@ class SimpleForm extends React.Component {
   }
 }
 
-export default Demo;
+export default Textfield;

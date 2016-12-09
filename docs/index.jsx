@@ -11,23 +11,11 @@ import { Aztec } from './../src';
 import './main.css';
 import '../style.css';
 import demoMUI from './pages/demo-mui';
-import MUIData from './data/mui';
+import textfield from './pages/textfield';
 
 
 // Needed for onTouchTap
 injectTapEventPlugin();
-
-const triggerChange = function (control, event, value) {
-  console.log('on change event triggered!!!', control, event, value);
-};
-
-const triggerBlur = function (control, event, value) {
-  console.log('on blur event triggered!!!', control, event, value);
-};
-
-const triggerFocus = function (control, event, value) {
-  console.log('on focus event triggered!!!', control, event, value);
-};
 
 // Add your documentation imports here. These are available to
 // React specimen. Do NOT pass React here as Catalog does that.
@@ -46,13 +34,17 @@ const pages = [
     path: '/simpleform',
     title: 'Simple Form',
     imports: {
-      Aztec,
-      MUIData,
-      triggerChange,
-      triggerFocus,
-      triggerBlur
+      Aztec
     },
     component: demoMUI
+  },
+  {
+    path: '/textfield',
+    title: 'Textfield',
+    imports: {
+      Aztec
+    },
+    component: textfield
   }
 ];
 
