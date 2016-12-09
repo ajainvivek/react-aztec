@@ -49,7 +49,7 @@ class Texfield extends React.Component {
     `
     return (
       <Page>
-        <h2>Textfields</h2>
+        <h2>Textfield with basic validation rules</h2>
 
         <hr />
 
