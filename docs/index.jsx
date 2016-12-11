@@ -15,6 +15,7 @@ import textfield from './pages/textfield';
 import selectfield from './pages/selectfield';
 import checkbox from './pages/checkbox';
 import radio from './pages/radio';
+import toggle from './pages/toggle';
 
 // Needed for onTouchTap
 injectTapEventPlugin();
@@ -71,6 +72,14 @@ const pages = [
       Aztec
     },
     component: radio
+  },
+  {
+    path: '/toggle',
+    title: 'Toggle',
+    imports: {
+      Aztec
+    },
+    component: toggle
   }
 ];
 

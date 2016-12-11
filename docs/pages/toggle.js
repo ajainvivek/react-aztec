@@ -8,11 +8,11 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 
 import { Aztec } from './../../src';
-import JSONData from './../data/radio';
+import JSONData from './../data/toggle';
 
 
 /** Demo Component */
-class Radio extends React.Component {
+class Toggle extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -49,7 +49,7 @@ class Texfield extends React.Component {
     `
     return (
       <Page>
-        <h2>Radio buttons are switches used for selection from multiple options.</h2>
+        <h2>A toggle switch is used as an on/off control.</h2>
 
         <hr />
 
@@ -88,4 +88,4 @@ class Texfield extends React.Component {
   }
 }
 
-export default Radio;
+export default Toggle;
