@@ -1,6 +1,6 @@
 const mui = [
   {
-    id: 7,
+    id: 'checkbox',
     type: 'checkbox',
     props: {
       id: 'hobbies',

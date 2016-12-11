@@ -14,6 +14,7 @@ import demoMUI from './pages/demo-mui';
 import textfield from './pages/textfield';
 import selectfield from './pages/selectfield';
 import checkbox from './pages/checkbox';
+import radio from './pages/radio';
 
 // Needed for onTouchTap
 injectTapEventPlugin();
@@ -62,6 +63,14 @@ const pages = [
       Aztec
     },
     component: checkbox
+  },
+  {
+    path: '/radio',
+    title: 'Radio',
+    imports: {
+      Aztec
+    },
+    component: radio
   }
 ];
 
