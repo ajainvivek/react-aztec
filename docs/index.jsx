@@ -12,7 +12,7 @@ import './main.css';
 import '../style.css';
 import demoMUI from './pages/demo-mui';
 import textfield from './pages/textfield';
-
+import selectfield from './pages/selectfield';
 
 // Needed for onTouchTap
 injectTapEventPlugin();
@@ -45,6 +45,14 @@ const pages = [
       Aztec
     },
     component: textfield
+  },
+  {
+    path: '/selectfield',
+    title: 'Selectfield',
+    imports: {
+      Aztec
+    },
+    component: selectfield
   }
 ];
 
