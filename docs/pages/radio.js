@@ -37,7 +37,7 @@ import * as MUI from 'material-ui';
 // Refer JSON data on the right side column
 import JSONData from 'src/path';
 
-class Texfield extends React.Component {
+class Radio extends React.Component {
   render() {
     return (
       <div>

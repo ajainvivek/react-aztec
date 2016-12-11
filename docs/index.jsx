@@ -16,6 +16,7 @@ import selectfield from './pages/selectfield';
 import checkbox from './pages/checkbox';
 import radio from './pages/radio';
 import toggle from './pages/toggle';
+import datepicker from './pages/datepicker';
 
 // Needed for onTouchTap
 injectTapEventPlugin();
@@ -80,6 +81,14 @@ const pages = [
       Aztec
     },
     component: toggle
+  },
+  {
+    path: '/datepicker',
+    title: 'Datepicker',
+    imports: {
+      Aztec
+    },
+    component: datepicker
   }
 ];
 

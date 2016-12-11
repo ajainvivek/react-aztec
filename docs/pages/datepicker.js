@@ -8,11 +8,11 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 
 import { Aztec } from './../../src';
-import JSONData from './../data/toggle';
+import JSONData from './../data/datepicker';
 
 
 /** Demo Component */
-class Toggle extends React.Component {
+class Datepicker extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -37,7 +37,7 @@ import * as MUI from 'material-ui';
 // Refer JSON data on the right side column
 import JSONData from 'src/path';
 
-class Toggle extends React.Component {
+class Datepicker extends React.Component {
   render() {
     return (
       <div>
@@ -49,7 +49,7 @@ class Toggle extends React.Component {
     `
     return (
       <Page>
-        <h2>A toggle switch is used as an on/off control.</h2>
+        <h2>Date Pickers are used to select a single date for an input.</h2>
 
         <hr />
 
@@ -61,7 +61,7 @@ class Toggle extends React.Component {
 
         <div className="codeblock">
           <Table>
-            <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
+            <TableHeader displaySelectAll={false} adjustForDatepicker={false}>
               <TableRow>
                 <TableHeaderColumn>Source Code</TableHeaderColumn>
                 <TableHeaderColumn>JSON Schema</TableHeaderColumn>
@@ -88,4 +88,4 @@ class Toggle extends React.Component {
   }
 }
 
-export default Toggle;
+export default Datepicker;
