@@ -8,11 +8,11 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 
 import { Aztec } from './../../src';
-import JSONData from './../data/selectfield';
+import JSONData from './../data/checkbox';
 
 
 /** Demo Component */
-class Selectfield extends React.Component {
+class Checkbox extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -37,7 +37,7 @@ import * as MUI from 'material-ui';
 // Refer JSON data on the right side column
 import JSONData from 'src/path';
 
-class SelectField extends React.Component {
+class Checkbox extends React.Component {
   render() {
     return (
       <div>
@@ -49,7 +49,7 @@ class SelectField extends React.Component {
     `
     return (
       <Page>
-        <h2>SelectField is implemented as a controlled selection component.</h2>
+        <h2>A checkbox is used to verify which options you want selected from a group.</h2>
 
         <hr />
 
@@ -88,4 +88,4 @@ class SelectField extends React.Component {
   }
 }
 
-export default Selectfield;
+export default Checkbox;

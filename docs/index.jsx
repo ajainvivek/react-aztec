@@ -13,6 +13,7 @@ import '../style.css';
 import demoMUI from './pages/demo-mui';
 import textfield from './pages/textfield';
 import selectfield from './pages/selectfield';
+import checkbox from './pages/checkbox';
 
 // Needed for onTouchTap
 injectTapEventPlugin();
@@ -53,6 +54,14 @@ const pages = [
       Aztec
     },
     component: selectfield
+  },
+  {
+    path: '/checkbox',
+    title: 'Checkbox',
+    imports: {
+      Aztec
+    },
+    component: checkbox
   }
 ];
 
