@@ -49,7 +49,7 @@ class Timepicker extends React.Component {
     `
     return (
       <Page>
-        <h2>A time picker is used to input a time by displaying an interface the user can interact with.</h2>
+        <p>A time picker is used to input a time by displaying an interface the user can interact with.</p>
 
         <hr />
 

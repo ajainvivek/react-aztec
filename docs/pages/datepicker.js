@@ -49,7 +49,7 @@ class Datepicker extends React.Component {
     `
     return (
       <Page>
-        <h2>Date Pickers are used to select a single date for an input.</h2>
+        <p>Date Pickers are used to select a single date for an input.</p>
 
         <hr />
 

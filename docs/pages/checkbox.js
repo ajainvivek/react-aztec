@@ -49,7 +49,7 @@ class Checkbox extends React.Component {
     `
     return (
       <Page>
-        <h2>A checkbox is used to verify which options you want selected from a group.</h2>
+        <p>A checkbox is used to verify which options you want selected from a group.</p>
 
         <hr />
 

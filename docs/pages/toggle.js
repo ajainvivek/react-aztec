@@ -49,7 +49,7 @@ class Toggle extends React.Component {
     `
     return (
       <Page>
-        <h2>A toggle switch is used as an on/off control.</h2>
+        <p>A toggle switch is used as an on/off control.</p>
 
         <hr />
 

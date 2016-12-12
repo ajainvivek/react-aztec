@@ -49,7 +49,7 @@ class Texfield extends React.Component {
     `
     return (
       <Page>
-        <h2>Text fields allow users to input text.</h2>
+        <p>Text fields allow users to input text.</p>
 
         <hr />
 

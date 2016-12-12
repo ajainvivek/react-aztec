@@ -18,6 +18,7 @@ import radio from './pages/radio';
 import toggle from './pages/toggle';
 import datepicker from './pages/datepicker';
 import timepicker from './pages/timepicker';
+import autocomplete from './pages/autocomplete';
 
 // Needed for onTouchTap
 injectTapEventPlugin();
@@ -98,6 +99,14 @@ const pages = [
       Aztec
     },
     component: timepicker
+  },
+  {
+    path: '/autocomplete',
+    title: 'Autocomplete',
+    imports: {
+      Aztec
+    },
+    component: autocomplete
   }
 ];
 

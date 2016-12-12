@@ -49,7 +49,7 @@ class Radio extends React.Component {
     `
     return (
       <Page>
-        <h2>Radio buttons are switches used for selection from multiple options.</h2>
+        <p>Radio buttons are switches used for selection from multiple options.</p>
 
         <hr />
 

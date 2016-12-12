@@ -49,7 +49,7 @@ class SelectField extends React.Component {
     `
     return (
       <Page>
-        <h2>SelectField is implemented as a controlled selection component.</h2>
+        <p>SelectField is implemented as a controlled selection component.</p>
 
         <hr />
 
