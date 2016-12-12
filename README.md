@@ -4,6 +4,8 @@
   <br>
 </h1>
 
+[![NPM Downloads][]](https://www.npmjs.org/package/react-aztec)
+
 Build dynamic forms using Material UI
 
 > Check demo & detail docs [React-Aztec](http://ajainvivek.github.io/react-aztec/#/simpleform)
