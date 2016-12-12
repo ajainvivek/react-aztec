@@ -9,6 +9,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import { Aztec } from './../src';
 import './main.css';
+import './jsoneditor.min.css';
 import '../style.css';
 import demoMUI from './pages/demo-mui';
 import textfield from './pages/textfield';
@@ -21,6 +22,7 @@ import timepicker from './pages/timepicker';
 import autocomplete from './pages/autocomplete';
 import layout from './pages/layout';
 import validation from './pages/validation';
+import playground from './pages/playground';
 
 // Needed for onTouchTap
 injectTapEventPlugin();
@@ -41,90 +43,62 @@ const pages = [
   {
     path: '/simpleform',
     title: 'Simple Form',
-    imports: {
-      Aztec
-    },
     component: demoMUI
   },
   {
     path: '/textfield',
     title: 'Textfield',
-    imports: {
-      Aztec
-    },
     component: textfield
   },
   {
     path: '/selectfield',
     title: 'Selectfield',
-    imports: {
-      Aztec
-    },
     component: selectfield
   },
   {
     path: '/checkbox',
     title: 'Checkbox',
-    imports: {
-      Aztec
-    },
     component: checkbox
   },
   {
     path: '/radio',
     title: 'Radio',
-    imports: {
-      Aztec
-    },
     component: radio
   },
   {
     path: '/toggle',
     title: 'Toggle',
-    imports: {
-      Aztec
-    },
     component: toggle
   },
   {
     path: '/datepicker',
     title: 'Datepicker',
-    imports: {
-      Aztec
-    },
     component: datepicker
   },
   {
     path: '/timepicker',
     title: 'Timepicker',
-    imports: {
-      Aztec
-    },
     component: timepicker
   },
   {
     path: '/autocomplete',
     title: 'Autocomplete',
-    imports: {
-      Aztec
-    },
     component: autocomplete
   },
   {
     path: '/layout',
     title: 'Layout',
-    imports: {
-      Aztec
-    },
     component: layout
   },
   {
     path: '/validation',
     title: 'Validation',
-    imports: {
-      Aztec
-    },
     component: validation
+  },
+  {
+    path: '/playground',
+    title: 'Playground',
+    component: playground
   }
 ];
 

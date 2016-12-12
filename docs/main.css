@@ -19,3 +19,20 @@
 .syntax pre {
   font-size: 12px !important;
 }
+
+#jsoneditor {
+  height: calc(100vh - 40px);
+  width: 400px;
+}
+
+.playground-container {
+  height: calc(100vh - 40px);
+}
+
+.aztec-container {
+  position: absolute;
+  left: 420px;
+  width: calc(100vw - 420px);
+  overflow-y: scroll;
+  height: 100%;
+}
