@@ -19,6 +19,7 @@ import toggle from './pages/toggle';
 import datepicker from './pages/datepicker';
 import timepicker from './pages/timepicker';
 import autocomplete from './pages/autocomplete';
+import layout from './pages/layout';
 
 // Needed for onTouchTap
 injectTapEventPlugin();
@@ -107,6 +108,14 @@ const pages = [
       Aztec
     },
     component: autocomplete
+  },
+  {
+    path: '/layout',
+    title: 'Layout',
+    imports: {
+      Aztec
+    },
+    component: layout
   }
 ];
 
