@@ -53,8 +53,8 @@ Aztec.propTypes = {
   onBlur: PropTypes.func,
   onTouchTap: PropTypes.func,
   onCheck: PropTypes.func,
-  onToggle: PropTypes.onToggle,
-  onShow: PropTypes.onShow,
-  onDismiss: PropTypes.onDismiss
+  onToggle: PropTypes.func,
+  onShow: PropTypes.func,
+  onDismiss: PropTypes.func
 };
 export default Aztec;
