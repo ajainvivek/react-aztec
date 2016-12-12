@@ -6,7 +6,7 @@
 
 Build dynamic forms using Material UI
 
-> Check demo [React-Aztec](http://ajainvivek.github.io/react-aztec/#/simpleform)
+> Check demo & detail docs [React-Aztec](http://ajainvivek.github.io/react-aztec/#/simpleform)
 
 ## Installation
 
