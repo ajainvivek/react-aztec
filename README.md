@@ -4,7 +4,7 @@
   <br>
 </h1>
 
-[![NPM Downloads][]](https://www.npmjs.org/package/react-aztec)
+[![Packagist](https://img.shields.io/packagist/dm/doctrine/orm.svg)](https://www.npmjs.org/package/react-aztec)
 
 Build dynamic forms using Material UI
 
