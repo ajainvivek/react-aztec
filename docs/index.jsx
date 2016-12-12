@@ -20,6 +20,7 @@ import datepicker from './pages/datepicker';
 import timepicker from './pages/timepicker';
 import autocomplete from './pages/autocomplete';
 import layout from './pages/layout';
+import validation from './pages/validation';
 
 // Needed for onTouchTap
 injectTapEventPlugin();
@@ -116,6 +117,14 @@ const pages = [
       Aztec
     },
     component: layout
+  },
+  {
+    path: '/validation',
+    title: 'Validation',
+    imports: {
+      Aztec
+    },
+    component: validation
   }
 ];
 
