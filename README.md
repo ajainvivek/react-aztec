@@ -4,7 +4,8 @@
   <br>
 </h1>
 
-[![Packagist](https://img.shields.io/packagist/dm/doctrine/orm.svg)](https://www.npmjs.org/package/react-aztec)
+[![GitHub issues](https://img.shields.io/github/issues/ajainvivek/react-aztec.svg)](https://github.com/ajainvivek/react-aztec/issues)
+[![GitHub stars](https://img.shields.io/github/stars/ajainvivek/react-aztec.svg)](https://github.com/ajainvivek/react-aztec/stargazers)
 
 Build dynamic forms using Material UI
 
