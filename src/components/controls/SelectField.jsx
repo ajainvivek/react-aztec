@@ -11,6 +11,11 @@ class SelectField extends React.Component {
     };
     this.onChange = this.onChange.bind(this);
   }
+  componentWillReceiveProps(props) {
+    this.state = {
+      value: props.attributes.selected
+    };
+  }
   validate(value) {
     let isValid = true;
     if (this.props.rules && this.props.rules.validation) {
