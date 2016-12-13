@@ -7,8 +7,7 @@ import * as MUI from 'material-ui';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 
-
-/** Demo Component */
+/* eslint-disable */
 class Validation extends React.Component {
   constructor(props) {
     super(props);
@@ -64,12 +63,12 @@ class Validation extends React.Component {
                 <TableRowColumn>
                   equals
                 </TableRowColumn>
-                <TableRowColumn style={{'white-space': 'normal'}}>
-                {`{
-                  rule: 'equals',
-                  message: 'error message',
-                  value: 'comparsion value'
-                }`}
+                <TableRowColumn style={{ 'white-space': 'normal' }}>
+                  {`{
+                    rule: 'equals',
+                    message: 'error message',
+                    value: 'comparsion value'
+                  }` }
                 </TableRowColumn>
                 <TableRowColumn>
                   check if the string matches the comparison
@@ -79,14 +78,14 @@ class Validation extends React.Component {
                 <TableRowColumn>
                   mobile
                 </TableRowColumn>
-                <TableRowColumn style={{'white-space': 'normal'}}>
-                {`{
-                  rule: 'mobile',
-                  message: 'error message',
-                  value: 'locale'
-                }`}
+                <TableRowColumn style={{ 'white-space': 'normal' }}>
+                  {`{
+                    rule: 'mobile',
+                    message: 'error message',
+                    value: 'locale'
+                  }`}
                 </TableRowColumn>
-                <TableRowColumn style={{'white-space': 'normal'}}>
+                <TableRowColumn style={{ 'white-space': 'normal' }}>
                   {`check if the string is a mobile phone number, (locale is one of ['ar-DZ', 'ar-SA', 'ar-SY', 'cs-CZ', 'de-DE', 'da-DK', 'el-GR', 'en-AU', 'en-GB', 'en-HK', 'en-IN', 'en-NZ', 'en-US', 'en-CA', 'en-ZA', 'en-ZM', 'es-ES', 'fi-FI', 'fr-FR', 'hu-HU', 'it-IT', 'ja-JP', 'ms-MY', 'nb-NO', 'nn-NO', 'pl-PL', 'pt-PT', 'ru-RU', 'sr-RS', 'tr-TR', 'vi-VN', 'zh-CN', 'zh-TW'])`}
                 </TableRowColumn>
               </TableRow>

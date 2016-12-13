@@ -15,7 +15,7 @@ import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowCol
 import SplitPane from 'react-split-pane';
 import { Aztec } from './../../src';
 import JSONEditor from './../jsoneditor.min';
-import JSONData from './../data/simpleform';
+import JSONData from './../data/sample';
 
 let editor = null;
 let container = null;

@@ -20,7 +20,7 @@ const validation = {
     return validator.isUppercase(value);
   },
   length(value, options) {
-    return validator.isLength(options);
+    return validator.isLength(value, options);
   },
   url(value) {
     return validator.isURL(value);
