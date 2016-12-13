@@ -108,8 +108,14 @@ class Playground extends React.Component {
     const mode = editor.getMode();
     if (mode === 'tree') {
       editor.setMode('text');
+      this.setState({
+        mode: 'text'
+      });
     } else {
       editor.setMode('tree');
+      this.setState({
+        mode: 'tree'
+      });
     }
   }
   onSave() {
@@ -141,7 +147,7 @@ class Playground extends React.Component {
               onTouchTap={this.exportJSON}
             />
             <FlatButton
-              label={`Switch mode`}
+              label={`Switch to ${(this.state.mode === 'tree') ? 'text' : 'tree'}`}
               primary
               onTouchTap={this.switchMode}
             />
