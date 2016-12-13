@@ -14,7 +14,7 @@ class AutoComplete extends React.Component {
   }
   validate(value) {
     let isValid = true;
-    if (this.props.rules.validation) {
+    if (this.props.rules && this.props.rules.validation) {
       for (const data of this.props.rules.validation) {
         isValid = validation[data.rule](value, data.value);
         if (!isValid) {
