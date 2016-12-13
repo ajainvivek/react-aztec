@@ -8,9 +8,9 @@ import 'purecss/build/pure.css';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import { Aztec } from './../src';
-import './main.css';
 import './jsoneditor.min.css';
 import '../style.css';
+import './main.css';
 import demoMUI from './pages/demo-mui';
 import textfield from './pages/textfield';
 import selectfield from './pages/selectfield';
