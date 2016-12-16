@@ -1,8 +1,8 @@
 import validator from 'validator';
 
 const validation = {
-  email(value) {
-    return validator.isEmail(value);
+  email(value, options) {
+    return validator.isEmail(value, options);
   },
   equals(value, comparison) {
     return validator.equals(value, comparison);
@@ -22,8 +22,8 @@ const validation = {
   length(value, options) {
     return validator.isLength(value, options);
   },
-  url(value) {
-    return validator.isURL(value);
+  url(value, options) {
+    return validator.isURL(value, options);
   },
   creditcard(value) {
     return validator.isCreditCard(value);
@@ -37,8 +37,8 @@ const validation = {
   boolean(value) {
     return validator.isBoolean(value);
   },
-  alphanumeric(value) {
-    validator.isAlphanumeric(value);
+  alphanumeric(value, locale) {
+    validator.isAlphanumeric(value, locale);
   },
   contains(value, seed) {
     return validator.contains(value, seed);
@@ -46,14 +46,14 @@ const validation = {
   FQDN(value, options) {
     return validator.isFQDN(value, options);
   },
-  float(value) {
-    return validator.isFloat(value);
+  float(value, options) {
+    return validator.isFloat(value, options);
   },
-  ip(value) {
-    return validator.isIP(value);
+  ip(value, version) {
+    return validator.isIP(value, version);
   },
-  ISBN(value) {
-    return validator.isISBN(value);
+  ISBN(value, version) {
+    return validator.isISBN(value, version);
   },
   MACAddress(value) {
     return validator.isMACAddress(value);
@@ -82,7 +82,7 @@ const validation = {
   decimal(value) {
     return validator.isDecimal(value);
   },
-  alpha(value) {
+  alpha(value, locale) {
     return validator.isAlpha(value);
   }
 };
