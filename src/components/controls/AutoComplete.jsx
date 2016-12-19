@@ -10,7 +10,6 @@ class AutoComplete extends React.Component {
     };
     this.onUpdateInput = this.onUpdateInput.bind(this);
     this.onNewRequest = this.onNewRequest.bind(this);
-    this.onClose = this.onClose.bind(this);
     this.filter = this.filter.bind(this);
     this.onBlur = this.onBlur.bind(this);
     this.onFocus = this.onFocus.bind(this);
@@ -43,11 +42,6 @@ class AutoComplete extends React.Component {
       this.props.onUpdateInput(this.props.control, ...args);
     }
   }
-  onClose(...args) {
-    if (typeof this.props.onClose === 'function') {
-      this.props.onClose(this.props.control, ...args);
-    }
-  }
   onNewRequest(...args) {
     if (typeof this.props.onNewRequest === 'function') {
       this.props.onNewRequest(this.props.control, ...args);
@@ -78,7 +72,7 @@ class AutoComplete extends React.Component {
     const props = this.props;
     const AUTOCOMPLETE = props.library[props.component];
     const filter = (typeof this.props.filter === 'function') ? this.props.filter : AUTOCOMPLETE[props.attributes.filter];
-    return <AUTOCOMPLETE {...props.attributes} filter={filter} errorText={this.state.errorText} onBlur={this.onBlur} onFocus={this.onFocus} onUpdateInput={this.onUpdateInput} onNewRequest={this.onNewRequest} onClose={this.onClose} />;
+    return <AUTOCOMPLETE {...props.attributes} filter={filter} errorText={this.state.errorText} onBlur={this.onBlur} onFocus={this.onFocus} onUpdateInput={this.onUpdateInput} onNewRequest={this.onNewRequest} />;
   }
 }
 
@@ -93,7 +87,6 @@ AutoComplete.propTypes = {
   onNewRequest: PropTypes.func,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
-  onClose: PropTypes.func,
   filter: PropTypes.func
 };
 export default AutoComplete;
