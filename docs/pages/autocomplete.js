@@ -12,7 +12,7 @@ import JSONData from './../data/autocomplete';
 
 
 /** Demo Component */
-class Automcomplete extends React.Component {
+class AutoComplete extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -37,7 +37,7 @@ import * as MUI from 'material-ui';
 // Refer JSON data on the right side column
 import JSONData from 'src/path';
 
-class Automcomplete extends React.Component {
+class AutoComplete extends React.Component {
   render() {
     return (
       <div>
@@ -55,7 +55,7 @@ class Automcomplete extends React.Component {
 
         <div className="full-width codedemo row">
           <div className="col-md-24">
-            <Aztec data={JSONData} library={MUI} onChange={this.onUpdate} />
+            <Aztec data={JSONData} library={MUI} onUpdateInput={this.onUpdate} />
           </div>
         </div>
 
@@ -88,4 +88,4 @@ class Automcomplete extends React.Component {
   }
 }
 
-export default Automcomplete;
+export default AutoComplete;

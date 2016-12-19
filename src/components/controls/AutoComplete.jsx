@@ -8,7 +8,10 @@ class AutoComplete extends React.Component {
     this.state = {
       errorText: ''
     };
-    this.onChange = this.onChange.bind(this);
+    this.onUpdateInput = this.onUpdateInput.bind(this);
+    this.onNewRequest = this.onNewRequest.bind(this);
+    this.onClose = this.onClose.bind(this);
+    this.filter = this.filter.bind(this);
     this.onBlur = this.onBlur.bind(this);
     this.onFocus = this.onFocus.bind(this);
   }
@@ -30,9 +33,24 @@ class AutoComplete extends React.Component {
       message: ''
     };
   }
-  onChange(...args) {
-    if (typeof this.props.onChange === 'function') {
-      this.props.onChange(this.props.control, ...args);
+  filter(...args) {
+    if (typeof this.props.filter === 'function') {
+      this.props.filter(this.props.control, ...args);
+    }
+  }
+  onUpdateInput(...args) {
+    if (typeof this.props.onUpdateInput === 'function') {
+      this.props.onUpdateInput(this.props.control, ...args);
+    }
+  }
+  onClose(...args) {
+    if (typeof this.props.onClose === 'function') {
+      this.props.onClose(this.props.control, ...args);
+    }
+  }
+  onNewRequest(...args) {
+    if (typeof this.props.onNewRequest === 'function') {
+      this.props.onNewRequest(this.props.control, ...args);
     }
   }
   onBlur(...args) {
@@ -59,7 +77,8 @@ class AutoComplete extends React.Component {
   render() {
     const props = this.props;
     const AUTOCOMPLETE = props.library[props.component];
-    return <AUTOCOMPLETE {...props.attributes} filter={AUTOCOMPLETE[props.attributes.filter]} errorText={this.state.errorText} onChange={this.onChange} onBlur={this.onBlur} onFocus={this.onFocus} />;
+    const filter = (typeof this.props.filter === 'function') ? this.props.filter : AUTOCOMPLETE[props.attributes.filter];
+    return <AUTOCOMPLETE {...props.attributes} filter={filter} errorText={this.state.errorText} onBlur={this.onBlur} onFocus={this.onFocus} onUpdateInput={this.onUpdateInput} onNewRequest={this.onNewRequest} onClose={this.onClose} />;
   }
 }
 
@@ -70,8 +89,11 @@ AutoComplete.propTypes = {
   control: PropTypes.object,
   option: PropTypes.string.isRequired,
   rules: PropTypes.object,
-  onChange: PropTypes.func,
+  onUpdateInput: PropTypes.onUpdateInput,
+  onNewRequest: PropTypes.onNewRequest,
   onFocus: PropTypes.func,
-  onBlur: PropTypes.func
+  onBlur: PropTypes.func,
+  onClose: PropTypes.func,
+  filter: PropTypes.func
 };
 export default AutoComplete;
