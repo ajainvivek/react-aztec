@@ -6,11 +6,18 @@ class TextField extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      errorText: ''
+      errorText: props.attributes.errorText || '',
+      value: props.attributes.value || ''
     };
     this.onChange = this.onChange.bind(this);
     this.onBlur = this.onBlur.bind(this);
     this.onFocus = this.onFocus.bind(this);
+  }
+  componentWillReceiveProps(props) {
+    this.setState({
+      errorText: props.attributes.errorText || '',
+      value: props.attributes.value || ''
+    });
   }
   validate(value) {
     let isValid = true;
@@ -31,6 +38,9 @@ class TextField extends React.Component {
     };
   }
   onChange(...args) {
+    this.setState({
+      value: args[1]
+    });
     if (typeof this.props.onChange === 'function') {
       this.props.onChange(this.props.control, ...args);
     }
@@ -59,7 +69,7 @@ class TextField extends React.Component {
   render() {
     const props = this.props;
     const TEXTFIELD = props.library[props.component];
-    return <TEXTFIELD {...props.attributes} errorText={this.state.errorText} onChange={this.onChange} onBlur={this.onBlur} onFocus={this.onFocus} />;
+    return <TEXTFIELD {...props.attributes} value={this.state.value} errorText={this.state.errorText} onChange={this.onChange} onBlur={this.onBlur} onFocus={this.onFocus} />;
   }
 }
 
