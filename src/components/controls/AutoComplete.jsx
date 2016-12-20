@@ -6,13 +6,20 @@ class AutoComplete extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      errorText: ''
+      errorText: props.attributes.errorText || '',
+      value: props.attributes.value || ''
     };
     this.onUpdateInput = this.onUpdateInput.bind(this);
     this.onNewRequest = this.onNewRequest.bind(this);
     this.filter = this.filter.bind(this);
     this.onBlur = this.onBlur.bind(this);
     this.onFocus = this.onFocus.bind(this);
+  }
+  componentWillReceiveProps(props) {
+    this.setState({
+      errorText: props.attributes.errorText || '',
+      value: props.attributes.value || ''
+    });
   }
   validate(value) {
     let isValid = true;
@@ -38,6 +45,9 @@ class AutoComplete extends React.Component {
     }
   }
   onUpdateInput(...args) {
+    this.setState({
+      value: args[0]
+    });
     if (typeof this.props.onUpdateInput === 'function') {
       this.props.onUpdateInput(this.props.control, ...args);
     }
@@ -72,7 +82,7 @@ class AutoComplete extends React.Component {
     const props = this.props;
     const AUTOCOMPLETE = props.library[props.component];
     const filter = (typeof this.props.filter === 'function') ? this.props.filter : AUTOCOMPLETE[props.attributes.filter];
-    return <AUTOCOMPLETE {...props.attributes} filter={filter} errorText={this.state.errorText} onBlur={this.onBlur} onFocus={this.onFocus} onUpdateInput={this.onUpdateInput} onNewRequest={this.onNewRequest} />;
+    return <AUTOCOMPLETE {...props.attributes} value={this.state.value} filter={filter} errorText={this.state.errorText} onBlur={this.onBlur} onFocus={this.onFocus} onUpdateInput={this.onUpdateInput} onNewRequest={this.onNewRequest} />;
   }
 }
 
