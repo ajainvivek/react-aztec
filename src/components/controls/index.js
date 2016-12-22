@@ -6,6 +6,7 @@ import Toggle from './Toggle';
 import DatePicker from './DatePicker';
 import TimePicker from './TimePicker';
 import AutoComplete from './AutoComplete';
+import Label from './Label';
 
 const Controls = {
   TextField,
@@ -15,7 +16,8 @@ const Controls = {
   Toggle,
   DatePicker,
   TimePicker,
-  AutoComplete
+  AutoComplete,
+  Label
 };
 
 export default Controls;

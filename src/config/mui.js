@@ -43,6 +43,10 @@ const mui = {
     type: 'AutoComplete',
     map: 'AutoComplete',
     filter: 'AutoComplete'
+  },
+  label: {
+    type: 'Label',
+    map: 'Label'
   }
 };
 

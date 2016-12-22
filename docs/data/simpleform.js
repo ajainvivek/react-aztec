@@ -71,7 +71,7 @@ const mui = [
     props: {
       id: 'email',
       hintText: 'eg. abc@xyz.com',
-      floatingLabelText: 'Whats your personal email?',
+      floatingLabelText: 'What is yor personal email?',
       type: 'email'
     },
     rules: {
