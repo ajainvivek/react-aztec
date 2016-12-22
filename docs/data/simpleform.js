@@ -157,18 +157,10 @@ const mui = [
       id: 'aztec',
       style: {
         marginTop: '30px'
-      }
-    },
-    options: [
-      {
-        label: 'Are you loving react-aztec?',
-        defaultToggled: true
       },
-      {
-        label: 'Do you love react?',
-        defaultToggled: false
-      }
-    ]
+      label: 'Are you loving react-aztec?',
+      defaultToggled: true
+    }
   },
   {
     id: 8,

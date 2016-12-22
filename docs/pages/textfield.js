@@ -21,14 +21,7 @@ class Textfield extends React.Component {
     this.onUpdate = this.onUpdate.bind(this);
   }
   onUpdate(...args) {
-    const control = args[0];
-    const formData = this.state.formData;
-    if (control.type === 'textfield') {
-      formData[control.id] = args[2];
-    }
-    this.setState({
-      formData
-    });
+    console.log(args)
   }
   render() {
     const sourceCode = `

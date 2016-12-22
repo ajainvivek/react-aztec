@@ -5,7 +5,8 @@ const mui = [
     props: {
       id: 'simple',
       floatingLabelText: 'Simple Textfield',
-      hintText: 'Name is required'
+      hintText: 'Name is required',
+      value: ''
     },
     rules: {
       validation: [
