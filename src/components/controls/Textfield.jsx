@@ -125,7 +125,7 @@ TextField.propTypes = {
   control: PropTypes.object,
   option: PropTypes.string.isRequired,
   rules: PropTypes.object,
-  formatter: PropTypes.format,
+  formatter: PropTypes.object,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func
