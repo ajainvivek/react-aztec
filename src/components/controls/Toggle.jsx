@@ -13,17 +13,9 @@ class Toggle extends React.Component {
   }
   render() {
     const props = this.props;
-    const OPTION = this.props.library[props.option];
+    const TOGGLE = props.library[props.component];
     return (
-      <div {...props.attributes}>
-        {this.props.control.options.map((option, index) => {
-          return (
-            <OPTION {...option} key={index} onToggle={this.onToggle}>
-              {}
-            </OPTION>
-          );
-        })}
-      </div>
+      <TOGGLE {...props.attributes} onToggle={this.onToggle} />
     );
   }
 }
@@ -33,7 +25,6 @@ Toggle.propTypes = {
   component: PropTypes.string.isRequired,
   attributes: PropTypes.object,
   control: PropTypes.object,
-  option: PropTypes.string.isRequired,
   rules: PropTypes.object,
   onToggle: PropTypes.func
 };
