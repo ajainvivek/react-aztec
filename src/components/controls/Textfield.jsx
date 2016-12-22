@@ -26,7 +26,7 @@ class TextField extends React.Component {
   format(value) {
     let formattedValue = value;
     const formatter = this.props.formatter;
-    let number = numeral(value).value();
+    let number = numeral(value).value() || 0;
     if (this.props.formatter && this.props.formatter.func && this.props.formatter.func.format) {
       formattedValue = number = numeral(number)[this.props.formatter.func.format.name](this.props.formatter.func.format.value).value();
     }
