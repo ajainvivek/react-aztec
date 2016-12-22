@@ -93,9 +93,9 @@ const mui = [
       floatingLabelText: 'Currency',
       hintText: 'eg. $423'
     },
-    format: {
+    formatter: {
       type: 'number',
-      formatter: '$0,0.00'
+      expression: '$0,0.00'
     },
     rules: {
       validation: [
@@ -108,6 +108,30 @@ const mui = [
           }
         }
       ]
+    }
+  },
+  {
+    id: 'percentage',
+    type: 'textfield',
+    props: {
+      id: 'percentage',
+      floatingLabelText: 'Percentage',
+      hintText: 'eg. 10%',
+      value: 100
+    },
+    formatter: {
+      type: 'number',
+      expression: '0%',
+      func: {
+        unformat: {
+          name: 'multiply',
+          value: 100
+        },
+        format: {
+          name: 'divide',
+          value: 100
+        }
+      }
     }
   }
 ];
