@@ -28,7 +28,7 @@ class TextField extends React.Component {
     const formatter = this.props.formatter;
     let number = numeral(value).value();
     if (this.props.formatter && this.props.formatter.func && this.props.formatter.func.format) {
-      number = numeral(number)[this.props.formatter.func.format.name](this.props.formatter.func.format.value).value();
+      formattedValue = number = numeral(number)[this.props.formatter.func.format.name](this.props.formatter.func.format.value).value();
     }
     if (formatter) {
       switch (formatter.type) {
@@ -44,14 +44,13 @@ class TextField extends React.Component {
   unformat(value) {
     let unformattedValue = value;
     const formatter = this.props.formatter;
+    if (this.props.formatter && this.props.formatter.func && this.props.formatter.func.unformat) {
+      unformattedValue = numeral(value)[this.props.formatter.func.unformat.name](this.props.formatter.func.unformat.value).value();
+    }
     if (formatter) {
       switch (formatter.type) {
         case 'number':
-          if (this.props.formatter && this.props.formatter.func && this.props.formatter.func.unformat) {
-            unformattedValue = numeral(value)[this.props.formatter.func.unformat.name](this.props.formatter.func.unformat.value).value();
-          } else {
-            unformattedValue = numeral(value).value();
-          }
+          unformattedValue = numeral(unformattedValue).value();
           break;
         default:
           break;

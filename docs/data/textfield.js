@@ -124,7 +124,7 @@ const mui = [
       expression: '0%',
       func: {
         unformat: {
-          name: 'multiply',
+          name: 'multiply', // add || multiply || divide || subtract
           value: 100
         },
         format: {
