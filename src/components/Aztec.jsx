@@ -25,7 +25,7 @@ export const Aztec = (props) => {
             {
               row.map((field, index) => (
                 <Col xs={field.layout.xs ? field.layout.xs.col : ''} sm={field.layout.sm ? field.layout.sm.col : ''} md={field.layout.md ? field.layout.md.col : ''} lg={field.layout.lg ? field.layout.lg.col : ''} style={field.style} className={`${field.className} ${(field.visible === false) ? 'hidden' : 'show'}`} key={index}>
-                  <DynamicComponent component={config.map[field.type].type} map={config.map[field.type].map} option={config.map[field.type].options ? config.map[field.type].options.type : ''} control={field} library={config.modules} attributes={field.props} rules={field.rules} onChange={props.onChange} onBlur={props.onBlur} onFocus={props.onFocus} onCheck={props.onCheck} onToggle={props.onToggle} onShow={props.onShow} onDismiss={props.onDismiss} onTouchTap={props.onTouchTap} onUpdateInput={props.onUpdateInput} onNewRequest={props.onNewRequest} filter={props.filter} />
+                  <DynamicComponent component={config.map[field.type].type} map={config.map[field.type].map} option={config.map[field.type].options ? config.map[field.type].options.type : ''} control={field} library={config.modules} attributes={field.props} rules={field.rules} format={field.format} onChange={props.onChange} onBlur={props.onBlur} onFocus={props.onFocus} onCheck={props.onCheck} onToggle={props.onToggle} onShow={props.onShow} onDismiss={props.onDismiss} onTouchTap={props.onTouchTap} onUpdateInput={props.onUpdateInput} onNewRequest={props.onNewRequest} filter={props.filter} />
                 </Col>
               ))
             }
@@ -36,7 +36,7 @@ export const Aztec = (props) => {
         layout.worows.map((field, index) => (
           <div key={index} style={field.style} className={`${field.className} ${(field.visible === false) ? 'hidden' : 'show'}`}>
             {
-              <DynamicComponent component={config.map[field.type].type} map={config.map[field.type].map} option={config.map[field.type].options ? config.map[field.type].options.type : ''} control={field} library={config.modules} attributes={field.props} rules={field.rules} onChange={props.onChange} onBlur={props.onBlur} onFocus={props.onFocus} onCheck={props.onCheck} onToggle={props.onToggle} onShow={props.onShow} onDismiss={props.onDismiss} onTouchTap={props.onTouchTap} onUpdateInput={props.onUpdateInput} onNewRequest={props.onNewRequest} filter={props.filter} />
+              <DynamicComponent component={config.map[field.type].type} map={config.map[field.type].map} option={config.map[field.type].options ? config.map[field.type].options.type : ''} control={field} library={config.modules} attributes={field.props} rules={field.rules} format={field.format} onChange={props.onChange} onBlur={props.onBlur} onFocus={props.onFocus} onCheck={props.onCheck} onToggle={props.onToggle} onShow={props.onShow} onDismiss={props.onDismiss} onTouchTap={props.onTouchTap} onUpdateInput={props.onUpdateInput} onNewRequest={props.onNewRequest} filter={props.filter} />
             }
           </div>
         ))

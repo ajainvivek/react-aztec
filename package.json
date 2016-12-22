@@ -108,6 +108,7 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "lodash": "^4.17.2",
+    "numeral": "^2.0.4",
     "pui-react-grids": "^7.2.0",
     "validator": "^6.1.0"
   }

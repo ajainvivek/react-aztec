@@ -46,6 +46,8 @@ class Texfield extends React.Component {
 
         <hr />
 
+        <p><a href="http://numeraljs.com/">Numeral.js</a> is the dependency used for number formatting. Have a look at currency textfield for reference.</p>
+
         <div className="full-width codedemo row">
           <div className="col-md-24">
             <Aztec data={JSONData} library={MUI} onChange={this.onUpdate} />

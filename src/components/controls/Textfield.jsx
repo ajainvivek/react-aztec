@@ -1,23 +1,56 @@
 import React, { PropTypes } from 'react';
+import numeral from 'numeral';
 import validation from './../../helpers/validation';
 
 /** Textfield Component */
 class TextField extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      errorText: props.attributes.errorText || '',
-      value: props.attributes.value || ''
-    };
+
     this.onChange = this.onChange.bind(this);
     this.onBlur = this.onBlur.bind(this);
     this.onFocus = this.onFocus.bind(this);
+    this.format = this.format.bind(this);
+
+    this.state = {
+      errorText: props.attributes.errorText || '',
+      value: this.format(props.attributes.value) || ''
+    };
   }
   componentWillReceiveProps(props) {
     this.setState({
       errorText: props.attributes.errorText || '',
       value: props.attributes.value || ''
     });
+  }
+  format(value) {
+    let formattedValue = value;
+    const format = this.props.format;
+    const number = numeral(value).value();
+    if (format) {
+      switch (format.type) {
+        case 'number':
+          formattedValue = numeral(number).format(format.formatter);
+          break;
+        default:
+          break;
+      }
+    }
+    return formattedValue;
+  }
+  unformat(value) {
+    let unformattedValue = value;
+    const format = this.props.format;
+    if (format) {
+      switch (format.type) {
+        case 'number':
+          unformattedValue = numeral(value).value();
+          break;
+        default:
+          break;
+      }
+    }
+    return unformattedValue;
   }
   validate(value) {
     let isValid = true;
@@ -39,7 +72,7 @@ class TextField extends React.Component {
   }
   onChange(...args) {
     this.setState({
-      value: args[1]
+      value: args[0].target.value
     });
     if (typeof this.props.onChange === 'function') {
       this.props.onChange(this.props.control, ...args);
@@ -47,7 +80,10 @@ class TextField extends React.Component {
   }
   onBlur(...args) {
     const props = this.props;
-    const validator = this.validate(args[0].target.value);
+    const validator = this.validate(this.format(args[0].target.value));
+    this.setState({
+      value: this.format(args[0].target.value)
+    });
     if (!validator.isValid) {
       this.setState({
         errorText: validator.message
@@ -62,6 +98,9 @@ class TextField extends React.Component {
     }
   }
   onFocus(...args) {
+    this.setState({
+      value: this.unformat(args[0].target.value)
+    });
     if (typeof this.props.onFocus === 'function') {
       this.props.onFocus(this.props.control, ...args);
     }
@@ -80,6 +119,7 @@ TextField.propTypes = {
   control: PropTypes.object,
   option: PropTypes.string.isRequired,
   rules: PropTypes.object,
+  format: PropTypes.format,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func

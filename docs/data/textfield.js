@@ -93,6 +93,10 @@ const mui = [
       floatingLabelText: 'Currency',
       hintText: 'eg. $423'
     },
+    format: {
+      type: 'number',
+      formatter: '$0,0.00'
+    },
     rules: {
       validation: [
         {
