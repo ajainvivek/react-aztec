@@ -87,7 +87,7 @@ const validation = {
     return validator.isAlpha(value);
   },
   negative(value) {
-    return numeral(value).value() > 0;
+    return numeral(value).value() > -1;
   }
 };
 
