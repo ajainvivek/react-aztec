@@ -79,14 +79,13 @@ class TextField extends React.Component {
   }
   getFormattedValue(val) {
     const formatter = this.props.formatter;
-    let value = '';
+    let value = val;
     if (formatter) {
       switch (formatter.type) {
         case 'number':
           value = numeral(val).value();
           break;
         default:
-          value = numeral(val).value();
           break;
       }
     }
