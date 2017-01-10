@@ -11,6 +11,7 @@ class TextField extends React.Component {
     this.onBlur = this.onBlur.bind(this);
     this.onFocus = this.onFocus.bind(this);
     this.format = this.format.bind(this);
+    this.getFormattedValue = this.getFormattedValue.bind(this);
 
     this.state = {
       errorText: props.attributes.errorText || '',
@@ -20,7 +21,7 @@ class TextField extends React.Component {
   componentWillReceiveProps(props) {
     this.setState({
       errorText: props.attributes.errorText || '',
-      value: props.attributes.value || ''
+      value: this.format(props.attributes.value) || ''
     });
   }
   format(value) {
@@ -76,17 +77,34 @@ class TextField extends React.Component {
       message: ''
     };
   }
+  getFormattedValue(val) {
+    const formatter = this.props.formatter;
+    let value = '';
+    if (formatter) {
+      switch (formatter.type) {
+        case 'number':
+          value = numeral(val).value();
+          break;
+        default:
+          value = numeral(val).value();
+          break;
+      }
+    }
+    return value;
+  }
   onChange(...args) {
     this.setState({
       value: args[0].target.value
     });
+    const formattedValue = this.getFormattedValue(args[0].target.value);
     if (typeof this.props.onChange === 'function') {
-      this.props.onChange(this.props.control, ...args);
+      this.props.onChange(this.props.control, args[0], formattedValue);
     }
   }
   onBlur(...args) {
     const props = this.props;
     const validator = this.validate(this.format(args[0].target.value));
+    const formattedValue = this.getFormattedValue(args[0].target.value);
     this.setState({
       value: this.format(args[0].target.value)
     });
@@ -100,15 +118,16 @@ class TextField extends React.Component {
       });
     }
     if (typeof props.onBlur === 'function') {
-      props.onBlur(props.control, ...args);
+      props.onBlur(this.props.control, args[0], formattedValue);
     }
   }
   onFocus(...args) {
+    const formattedValue = this.getFormattedValue(args[0].target.value);
     this.setState({
       value: this.unformat(args[0].target.value)
     });
     if (typeof this.props.onFocus === 'function') {
-      this.props.onFocus(this.props.control, ...args);
+      this.props.onFocus(this.props.control, args[0], formattedValue);
     }
   }
   render() {

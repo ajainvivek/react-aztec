@@ -1,4 +1,5 @@
 import validator from 'validator';
+import numeral from 'numeral';
 
 const validation = {
   email(value, options) {
@@ -84,6 +85,9 @@ const validation = {
   },
   alpha(value, locale) {
     return validator.isAlpha(value);
+  },
+  negative(value) {
+    return numeral(value).value() > 0;
   }
 };
 

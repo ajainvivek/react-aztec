@@ -323,6 +323,20 @@ class Validation extends React.Component {
               </TableRow>
               <TableRow>
                 <TableRowColumn>
+                  negative
+                </TableRowColumn>
+                <TableRowColumn style={{'white-space': 'normal'}}>
+                {`{
+                  rule: 'negative',
+                  message: 'error message'
+                }`}
+                </TableRowColumn>
+                <TableRowColumn>
+                  check if the string is a negative number
+                </TableRowColumn>
+              </TableRow>
+              <TableRow>
+                <TableRowColumn>
                   UUID
                 </TableRowColumn>
                 <TableRowColumn style={{'white-space': 'normal'}}>

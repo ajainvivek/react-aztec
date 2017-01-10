@@ -43,8 +43,8 @@ class DatePicker extends React.Component {
     }
   }
   onDismiss(...args) {
-    const props = this.props;
     if (!args[0]) return;
+    const props = this.props;
     const validator = this.validate(args[0].target.value);
     if (!validator.isValid) {
       this.setState({

@@ -43,6 +43,7 @@ class TimePicker extends React.Component {
     }
   }
   onDismiss(...args) {
+    if (!args[0]) return;
     const props = this.props;
     const validator = this.validate(args[0].target.value);
     if (!validator.isValid) {

@@ -100,12 +100,8 @@ const mui = [
     rules: {
       validation: [
         {
-          rule: 'currency',
-          message: 'Invalid Currency!!',
-          value: {
-            symbol: '$',
-            require_symbol: true
-          }
+          rule: 'negative',
+          message: 'Currency cannot be negative!!'
         }
       ]
     }
