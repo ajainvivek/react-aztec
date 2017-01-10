@@ -13,18 +13,9 @@ class Checkbox extends React.Component {
   }
   render() {
     const props = this.props;
-    const OPTION = this.props.library[props.option];
+    const CHECKBOX = props.library[props.component];
     return (
-      <div {...props.attributes}>
-        <h3 style={props.attributes.titleStyle}>{props.attributes.title}</h3>
-        {this.props.control.options.map((option, index) => {
-          return (
-            <OPTION {...option} key={index} onCheck={this.onCheck}>
-              {}
-            </OPTION>
-          );
-        })}
-      </div>
+      <CHECKBOX {...props.attributes} onToggle={this.onCheck} />
     );
   }
 }
@@ -34,7 +25,6 @@ Checkbox.propTypes = {
   component: PropTypes.string.isRequired,
   attributes: PropTypes.object,
   control: PropTypes.object,
-  option: PropTypes.string.isRequired,
   rules: PropTypes.object,
   onCheck: PropTypes.func
 };

@@ -1,41 +1,53 @@
 const mui = [
   {
-    id: 'checkbox',
+    id: 'shows_1',
     type: 'checkbox',
     props: {
-      id: 'hobbies',
-      title: 'What are your hobbies?',
-      titleStyle: {
-        color: 'rgb(175, 175, 175)'
-      },
+      id: 'got',
+      label: 'Game Of Thrones',
+      defaultChecked: false,
       style: {
-        marginTop: '30px'
+        marginTop: '20px'
       }
-    },
-    options: [
-      {
-        label: 'Singing',
-        defaultChecked: false
-      },
-      {
-        label: 'Dancing',
-        defaultChecked: true
-      },
-      {
-        label: 'Cycling',
-        defaultChecked: false
-      },
-      {
-        label: 'Skiing',
-        defaultChecked: false,
-        disabled: true
-      },
-      {
-        label: 'Reading',
-        defaultChecked: true,
-        disabled: true
+    }
+  },
+  {
+    id: 'shows_2',
+    type: 'checkbox',
+    props: {
+      id: 'vikings',
+      label: 'Vikings',
+      defaultChecked: true,
+      style: {
+        marginTop: '20px'
       }
-    ]
+    }
+  },
+  {
+    id: 'shows_3',
+    type: 'checkbox',
+    props: {
+      id: 'bbt',
+      label: 'Big Bang Theory',
+      defaultChecked: true,
+      disabled: true,
+      style: {
+        marginTop: '20px'
+      }
+    }
+  },
+  {
+    id: 'shows_4',
+    type: 'checkbox',
+    props: {
+      id: 'friends',
+      label: 'Friends',
+      defaultChecked: false,
+      disabled: true,
+      style: {
+        marginTop: '20px'
+      }
+    }
   }
 ];
 
