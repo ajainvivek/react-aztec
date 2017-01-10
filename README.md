@@ -5,7 +5,7 @@
 </h1>
 
 [![GitHub issues](https://img.shields.io/github/issues/ajainvivek/react-aztec.svg)](https://github.com/ajainvivek/react-aztec/issues)
-[![GitHub stars](https://img.shields.io/github/stars/ajainvivek/react-aztec.svg)](https://github.com/ajainvivek/react-aztec/stargazers)
+[![npm version](https://img.shields.io/npm/v/react-aztec.svg?style=flat)](https://www.npmjs.com/package/react-aztec)
 
 Build dynamic forms using Material UI
 
@@ -15,6 +15,7 @@ Build dynamic forms using Material UI
 
 ## Installation
 
+`npm install material-ui --save`
 `npm install react-aztec --save`
 
 ### Basic Usage
@@ -22,7 +23,7 @@ Build dynamic forms using Material UI
 Refer [Material-UI](http://www.material-ui.com/) documentation for components props
 
 ```javascript
-import * as MUI from 'material-ui';
+import { TextField } as MUI from 'material-ui';
 import { Aztec } from 'react-aztec';
 
 const formData = [
@@ -130,3 +131,8 @@ class SimpleForm extends React.Component {
   }
 }
 ```
+
+
+## License
+
+MIT
