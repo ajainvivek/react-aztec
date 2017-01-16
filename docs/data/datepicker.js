@@ -41,7 +41,7 @@ const mui = [
     type: 'datepicker',
     props: {
       id: 'formatted',
-      hintText: 'Moment Formatted Date',
+      hintText: 'Date Range',
       minDate: '01/01/2017',
       maxDate: '' // empty string refers to now
     }
