@@ -4,7 +4,8 @@ const mui = [
     type: 'datepicker',
     props: {
       id: 'portrait',
-      hintText: 'Portrait Dialog'
+      hintText: 'Portrait Dialog',
+      value: '01/26/2017'
     }
   },
   {
@@ -23,6 +24,26 @@ const mui = [
       id: 'disabled',
       hintText: 'Dialog Disabled',
       disabled: true
+    }
+  },
+  {
+    id: 'formatted',
+    type: 'datepicker',
+    props: {
+      id: 'formatted',
+      hintText: 'Moment Formatted Date',
+      value: '01/26/2017'
+    },
+    format: 'll'
+  },
+  {
+    id: 'daterange',
+    type: 'datepicker',
+    props: {
+      id: 'formatted',
+      hintText: 'Moment Formatted Date',
+      minDate: '01/01/2017',
+      maxDate: '' // empty string refers to now
     }
   }
 ];

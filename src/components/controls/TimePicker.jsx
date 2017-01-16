@@ -1,12 +1,25 @@
 import React, { PropTypes } from 'react';
+import moment from 'moment';
 import validation from './../../helpers/validation';
+
+function transformAttrs(props) {
+  const {
+    value
+  } = props.attributes;
+  const modifiedAttrs = {
+    value: value ? new Date(moment(props.attributes.value).format()) : undefined
+  };
+  const attrs = Object.assign({}, props.attributes, modifiedAttrs);
+  return attrs;
+}
 
 /** TimePicker Component */
 class TimePicker extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      errorText: ''
+      errorText: '',
+      attributes: props ? transformAttrs(props) : {}
     };
     this.onChange = this.onChange.bind(this);
     this.onDismiss = this.onDismiss.bind(this);
@@ -14,23 +27,11 @@ class TimePicker extends React.Component {
     this.onShow = this.onShow.bind(this);
     this.onTouchTap = this.onTouchTap.bind(this);
   }
-  validate(value) {
-    let isValid = true;
-    if (this.props.rules && this.props.rules.validation) {
-      for (const data of this.props.rules.validation) {
-        isValid = validation[data.rule](value, data.value);
-        if (!isValid) {
-          return {
-            isValid: false,
-            message: data.message
-          };
-        }
-      }
-    }
-    return {
-      isValid: true,
-      message: ''
-    };
+  componentWillReceiveProps(props) {
+    const attrs = transformAttrs(props);
+    this.setState({
+      attributes: attrs
+    });
   }
   onShow(...args) {
     if (typeof this.props.onShow === 'function') {
@@ -38,6 +39,11 @@ class TimePicker extends React.Component {
     }
   }
   onChange(...args) {
+    this.setState({
+      attributes: {
+        value: args[1]
+      }
+    });
     if (typeof this.props.onChange === 'function') {
       this.props.onChange(this.props.control, ...args);
     }
@@ -45,16 +51,6 @@ class TimePicker extends React.Component {
   onDismiss(...args) {
     if (!args[0]) return;
     const props = this.props;
-    const validator = this.validate(args[0].target.value);
-    if (!validator.isValid) {
-      this.setState({
-        errorText: validator.message
-      });
-    } else {
-      this.setState({
-        errorText: ''
-      });
-    }
     if (typeof props.onDismiss === 'function') {
       props.onDismiss(props.control, ...args);
     }

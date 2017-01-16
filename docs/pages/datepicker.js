@@ -16,7 +16,7 @@ class Datepicker extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formData: {}
+      formData: JSONData
     };
     this.onUpdate = this.onUpdate.bind(this);
   }
@@ -48,7 +48,7 @@ class Datepicker extends React.Component {
 
         <div className="full-width codedemo row">
           <div className="col-md-24">
-            <Aztec data={JSONData} library={MUI} onChange={this.onUpdate} />
+            <Aztec data={this.state.formData} library={MUI} onChange={this.onUpdate} />
           </div>
         </div>
 
