@@ -24,7 +24,8 @@ class DatePicker extends React.Component {
 
     this.state = {
       errorText: '',
-      attributes: props ? transformAttrs(props) : {}
+      attributes: props ? transformAttrs(props) : {},
+      transformedAttrs: props ? transformAttrs(props) : {}
     };
 
     this.onChange = this.onChange.bind(this);
@@ -37,7 +38,8 @@ class DatePicker extends React.Component {
   componentWillReceiveProps(props) {
     const attrs = transformAttrs(props);
     this.setState({
-      attributes: attrs
+      attributes: attrs,
+      transformedAttrs: attrs
     });
   }
   onShow(...args) {
@@ -53,10 +55,11 @@ class DatePicker extends React.Component {
     return moment(date).format('L');
   }
   onChange(...args) {
+    const attrs = Object.assign({}, this.state.transformedAttrs, {
+      value: args[1]
+    });
     this.setState({
-      attributes: {
-        value: args[1]
-      }
+      attributes: attrs
     });
     if (typeof this.props.onChange === 'function') {
       this.props.onChange(this.props.control, ...args);
