@@ -15,7 +15,7 @@ class Checkbox extends React.Component {
     const props = this.props;
     const CHECKBOX = props.library[props.component];
     return (
-      <CHECKBOX {...props.attributes} onToggle={this.onCheck} />
+      <CHECKBOX {...props.attributes} onCheck={this.onCheck} />
     );
   }
 }

@@ -22,13 +22,7 @@ class Checkbox extends React.Component {
   }
   onUpdate(...args) {
     const control = args[0];
-    const formData = this.state.formData;
-    if (control.type === 'textfield') {
-      formData[control.id] = args[2];
-    }
-    this.setState({
-      formData
-    });
+    console.log(args);
   }
   render() {
     const sourceCode = `
@@ -55,7 +49,7 @@ class Checkbox extends React.Component {
 
         <div className="full-width codedemo row">
           <div className="col-md-24">
-            <Aztec data={JSONData} library={MUI} onChange={this.onUpdate} />
+            <Aztec data={JSONData} library={MUI} onCheck={this.onUpdate} />
           </div>
         </div>
 
