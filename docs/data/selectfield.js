@@ -49,7 +49,9 @@ const mui = [
     type: 'selectfield',
     props: {
       id: 'nullable',
-      floatingLabelText: 'Null',
+      floatingLabelText: '',
+      errorText: 'Cannot be empty!',
+      errorStyle: { color: 'red' },
       value: null
     },
     options: [

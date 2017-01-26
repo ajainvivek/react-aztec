@@ -7,7 +7,7 @@ class SelectField extends React.Component {
     super(props);
     this.state = {
       value: props.attributes.selected,
-      errorText: ''
+      errorText: props.attributes.errorText || ''
     };
     this.onChange = this.onChange.bind(this);
   }
