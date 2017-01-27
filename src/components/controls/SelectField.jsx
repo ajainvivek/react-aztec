@@ -13,7 +13,8 @@ class SelectField extends React.Component {
   }
   componentWillReceiveProps(props) {
     this.state = {
-      value: props.attributes.selected
+      value: props.attributes.selected,
+      errorText: props.attributes.errorText || ''
     };
   }
   validate(value) {
