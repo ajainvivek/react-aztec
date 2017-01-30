@@ -85,10 +85,20 @@ class TimePicker extends React.Component {
   render() {
     const props = this.props;
     const TIMEPICKER = props.library[props.component];
+    const wrapperStyle = Object.assign({}, {
+      position: 'relative',
+      display: 'inline-block'
+    }, props.attributes.wrapperStyle);
+    const closeStyle = Object.assign({}, {
+      position: 'absolute',
+      right: 0,
+      top: '12px',
+      cursor: 'pointer'
+    }, props.attributes.closeStyle);
     return (
-      <div style={{ position: 'relative', display: 'inline-block' }}>
+      <div style={wrapperStyle}>
         <TIMEPICKER {...this.state.attributes} errorText={this.state.errorText} onChange={this.onChange} onFocus={this.onFocus} onShow={this.onShow} onDismiss={this.onDismiss} onTouchTap={this.onTouchTap} />
-        <ActionClear color={grey500} style={{ position: 'absolute', right: 0, top: '12px', cursor: 'pointer' }} onClick={this.clear} />
+        <ActionClear color={grey500} style={closeStyle} onClick={this.clear} />
       </div>
     );
   }
@@ -105,6 +115,8 @@ TimePicker.propTypes = {
   onFocus: PropTypes.func,
   onDismiss: PropTypes.func,
   onShow: PropTypes.func,
-  onTouchTap: PropTypes.func
+  onTouchTap: PropTypes.func,
+  wrapperStyle: PropTypes.object,
+  closeStyle: PropTypes.object
 };
 export default TimePicker;

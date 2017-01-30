@@ -99,10 +99,20 @@ class DatePicker extends React.Component {
   render() {
     const props = this.props;
     const DATEPICKER = props.library[props.component];
+    const wrapperStyle = Object.assign({}, {
+      position: 'relative',
+      display: 'inline-block'
+    }, props.attributes.wrapperStyle);
+    const closeStyle = Object.assign({}, {
+      position: 'absolute',
+      right: 0,
+      top: '12px',
+      cursor: 'pointer'
+    }, props.attributes.closeStyle);
     return (
-      <div style={{ position: 'relative', display: 'inline-block' }}>
+      <div style={wrapperStyle}>
         <DATEPICKER {...this.state.attributes} errorText={this.state.errorText} onChange={this.onChange} onFocus={this.onFocus} onShow={this.onShow} onDismiss={this.onDismiss} onTouchTap={this.onTouchTap} formatDate={this.formatDate} />
-        <ActionClear color={grey500} style={{ position: 'absolute', right: 0, top: '12px', cursor: 'pointer' }} onClick={this.clear} />
+        <ActionClear color={grey500} style={closeStyle} onClick={this.clear} />
       </div>
     );
   }
@@ -120,6 +130,8 @@ DatePicker.propTypes = {
   onDismiss: PropTypes.func,
   onShow: PropTypes.func,
   onTouchTap: PropTypes.func,
-  format: PropTypes.string
+  format: PropTypes.string,
+  wrapperStyle: PropTypes.object,
+  closeStyle: PropTypes.object
 };
 export default DatePicker;
