@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
 import moment from 'moment';
+import ActionClear from 'material-ui/svg-icons/content/clear';
+import { grey500 } from 'material-ui/styles/colors';
 import validation from './../../helpers/validation';
 
 function transformAttrs(props) {
@@ -34,6 +36,7 @@ class DatePicker extends React.Component {
     this.onShow = this.onShow.bind(this);
     this.onTouchTap = this.onTouchTap.bind(this);
     this.formatDate = this.formatDate.bind(this);
+    this.clear = this.clear.bind(this);
   }
   componentWillReceiveProps(props) {
     const attrs = transformAttrs(props);
@@ -82,10 +85,26 @@ class DatePicker extends React.Component {
       this.props.onTouchTap(this.props.control, ...args);
     }
   }
+  clear() {
+    const attrs = Object.assign({}, this.state.transformedAttrs, {
+      value: null
+    });
+    this.setState({
+      attributes: attrs
+    });
+    if (typeof this.props.onChange === 'function') {
+      this.props.onChange(this.props.control, null, null);
+    }
+  }
   render() {
     const props = this.props;
     const DATEPICKER = props.library[props.component];
-    return <DATEPICKER {...this.state.attributes} errorText={this.state.errorText} onChange={this.onChange} onFocus={this.onFocus} onShow={this.onShow} onDismiss={this.onDismiss} onTouchTap={this.onTouchTap} formatDate={this.formatDate} />;
+    return (
+      <div style={{ position: 'relative', display: 'inline-block' }}>
+        <DATEPICKER {...this.state.attributes} errorText={this.state.errorText} onChange={this.onChange} onFocus={this.onFocus} onShow={this.onShow} onDismiss={this.onDismiss} onTouchTap={this.onTouchTap} formatDate={this.formatDate} />
+        <ActionClear color={grey500} style={{ position: 'absolute', right: 0, top: '12px', cursor: 'pointer' }} onClick={this.clear} />
+      </div>
+    );
   }
 }
 

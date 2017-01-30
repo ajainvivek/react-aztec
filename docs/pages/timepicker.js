@@ -23,6 +23,7 @@ class Timepicker extends React.Component {
   onUpdate(...args) {
     const control = args[0];
     const formData = this.state.formData;
+    console.log(args)
     if (control.type === 'textfield') {
       formData[control.id] = args[2];
     }

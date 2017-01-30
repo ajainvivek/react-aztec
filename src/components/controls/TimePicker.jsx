@@ -1,13 +1,15 @@
 import React, { PropTypes } from 'react';
 import moment from 'moment';
 import validation from './../../helpers/validation';
+import ActionClear from 'material-ui/svg-icons/content/clear';
+import { grey500 } from 'material-ui/styles/colors';
 
 function transformAttrs(props) {
   const {
     value
   } = props.attributes;
   const modifiedAttrs = {
-    value: value ? new Date(moment(props.attributes.value).format()) : undefined
+    value: value ? new Date(moment(props.attributes.value).format()) : null
   };
   const attrs = Object.assign({}, props.attributes, modifiedAttrs);
   return attrs;
@@ -27,6 +29,7 @@ class TimePicker extends React.Component {
     this.onFocus = this.onFocus.bind(this);
     this.onShow = this.onShow.bind(this);
     this.onTouchTap = this.onTouchTap.bind(this);
+    this.clear = this.clear.bind(this);
   }
   componentWillReceiveProps(props) {
     const attrs = transformAttrs(props);
@@ -68,10 +71,26 @@ class TimePicker extends React.Component {
       this.props.onTouchTap(this.props.control, ...args);
     }
   }
+  clear() {
+    const attrs = Object.assign({}, this.state.attributes, {
+      value: {}
+    });
+    this.setState({
+      attributes: attrs
+    });
+    if (typeof this.props.onChange === 'function') {
+      this.props.onChange(this.props.control, null, null);
+    }
+  }
   render() {
     const props = this.props;
     const TIMEPICKER = props.library[props.component];
-    return <TIMEPICKER {...props.attributes} errorText={this.state.errorText} onChange={this.onChange} onFocus={this.onFocus} onShow={this.onShow} onDismiss={this.onDismiss} onTouchTap={this.onTouchTap} />;
+    return (
+      <div style={{ position: 'relative', display: 'inline-block' }}>
+        <TIMEPICKER {...this.state.attributes} errorText={this.state.errorText} onChange={this.onChange} onFocus={this.onFocus} onShow={this.onShow} onDismiss={this.onDismiss} onTouchTap={this.onTouchTap} />
+        <ActionClear color={grey500} style={{ position: 'absolute', right: 0, top: '12px', cursor: 'pointer' }} onClick={this.clear} />
+      </div>
+    );
   }
 }
 
