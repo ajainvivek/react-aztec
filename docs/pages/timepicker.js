@@ -51,7 +51,7 @@ class Timepicker extends React.Component {
     return (
       <Page>
         <p>A time picker is used to input a time by displaying an interface the user can interact with.</p>
-
+        <p>wrapperStyle & closeStyle are additional props added to change the close & wrapper block style.</p>
         <hr />
 
         <div className="full-width codedemo row">
