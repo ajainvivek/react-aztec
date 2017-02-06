@@ -266,6 +266,6 @@ Aztec.propTypes = {
   filter: PropTypes.func,
   response: PropTypes.object,
   onSubmit: PropTypes.func,
-  formRef: PropTypes.object
+  formRef: PropTypes.func
 };
 export default Aztec;
