@@ -66,7 +66,7 @@ const mui = [
       }
     ]
   }, {
-    id: 5,
+    id: 4,
     type: 'textfield',
     props: {
       id: 'email',
@@ -84,7 +84,7 @@ const mui = [
       ]
     }
   }, {
-    id: 6,
+    id: 5,
     type: 'selectfield',
     props: {
       id: 'locations',
@@ -123,7 +123,7 @@ const mui = [
     }
   },
   {
-    id: 7,
+    id: 6,
     type: 'checkbox',
     props: {
       id: 'hobbies',
