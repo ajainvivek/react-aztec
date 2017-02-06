@@ -75,6 +75,7 @@ class SimpleForm extends React.Component {
           }
           onSubmit={this.onSubmit}
         />
+        <button onClick={this.triggerSubmit}>Submit</button>
       </div>
     )
   }
