@@ -127,28 +127,15 @@ const mui = [
     type: 'checkbox',
     props: {
       id: 'hobbies',
-      title: 'What are your hobbies?',
+      label: 'Are you living your life?',
       titleStyle: {
         color: 'rgb(175, 175, 175)'
       },
       style: {
         marginTop: '30px'
-      }
-    },
-    options: [
-      {
-        label: 'Singing',
-        defaultChecked: true
       },
-      {
-        label: 'Dancing',
-        defaultChecked: false
-      },
-      {
-        label: 'Cycling',
-        defaultChecked: false
-      }
-    ]
+      defaultChecked: true
+    }
   },
   {
     id: 7,

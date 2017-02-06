@@ -16,15 +16,26 @@ class Demo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formData: {}
+      formData: JSONData,
+      response: '',
+      errors: ''
     };
     this.onUpdate = this.onUpdate.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+    this.triggerSubmit = this.triggerSubmit.bind(this);
   }
   onUpdate(...args) {
-    console.log(args)
+    console.log(...args);
   }
-  onSubmit() {
-    alert('You are done!!!');
+  onSubmit(response, errors, formData) {
+    this.setState({
+      response: JSON.stringify(response, null, 2),
+      errors: JSON.stringify(errors, null, 2),
+      formData
+    });
+  }
+  triggerSubmit(data) {
+    this.formRef.click();
   }
   render() {
     const sourceCode = `
@@ -34,10 +45,36 @@ import * as MUI from 'material-ui';
 import JSONData from 'src/path';
 
 class SimpleForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      formData: JSONData
+    }
+    this.onSubmit = this.onSubmit.bind(this);
+    this.triggerSubmit = this.triggerSubmit.bind(this);
+  }
+  onSubmit(response, errors, formData) {
+    this.setState({
+      formData //!important to reset the formData to retain the updated form values on UI
+    });
+  }
+  triggerSubmit(data) {
+    this.formRef.click();
+  }
   render() {
     return (
       <div>
-        <Aztec data={JSONData} library={MUI}/>
+        <Aztec
+          data={this.state.formData}
+          library={MUI}
+          onChange={this.onUpdate}
+          formRef={
+            (form) => {
+              this.formRef = form;
+            }
+          }
+          onSubmit={this.onSubmit}
+        />
       </div>
     )
   }
@@ -50,9 +87,34 @@ class SimpleForm extends React.Component {
         <hr />
 
         <div className="full-width codedemo row">
-          <div className="col-md-24">
-            <Aztec data={JSONData} library={MUI} onChange={this.onUpdate} />
-            <RaisedButton label="Complete Survey" primary onClick={this.onSubmit} />
+          <div className="col-md-12">
+            <Aztec
+              data={this.state.formData}
+              library={MUI}
+              onChange={this.onUpdate}
+              formRef={
+                (form) => {
+                  this.formRef = form;
+                }
+              }
+              onSubmit={this.onSubmit}
+            />
+            <RaisedButton label="Complete Survey" primary onClick={this.triggerSubmit} />
+          </div>
+          <div className="col-md-12">
+            <h4>Refer the response on submit</h4>
+            <h4 style={{ color: 'green' }}>Response Form Data</h4>
+            <p style={{ fontSize: '14px', color: '#7f7d7d' }}>
+              <pre>
+                {this.state.response || '<>'}
+              </pre>
+            </p>
+            <h4 style={{ color: 'red' }}>Errors</h4>
+            <p style={{ fontSize: '14px', color: '#7f7d7d' }}>
+              <pre>
+                {this.state.errors || '<>'}
+              </pre>
+            </p>
           </div>
         </div>
 

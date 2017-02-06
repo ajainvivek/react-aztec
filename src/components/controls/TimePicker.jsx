@@ -87,13 +87,14 @@ class TimePicker extends React.Component {
     const TIMEPICKER = props.library[props.component];
     const wrapperStyle = Object.assign({}, {
       position: 'relative',
-      display: 'inline-block'
+      display: props.attributes.clear ? 'inline-block' : ''
     }, props.attributes.wrapperStyle);
     const closeStyle = Object.assign({}, {
       position: 'absolute',
       right: 0,
       top: '12px',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      display: props.attributes.clear ? 'block' : 'none'
     }, props.attributes.closeStyle);
     return (
       <div style={wrapperStyle}>

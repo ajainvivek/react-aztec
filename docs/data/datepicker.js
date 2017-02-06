@@ -13,8 +13,9 @@ const mui = [
     type: 'datepicker',
     props: {
       id: 'landscape',
-      hintText: 'Landscape Dialog',
-      mode: 'landscape'
+      hintText: 'Landscape Dialog with clear',
+      mode: 'landscape',
+      clear: true
     }
   },
   {

@@ -43,7 +43,6 @@ class Datepicker extends React.Component {
     return (
       <Page>
         <p>Date Pickers are used to select a single date for an input.</p>
-        <p>wrapperStyle & closeStyle are additional props added to change the close & wrapper block style.</p>
         <hr />
 
         <div className="full-width codedemo row">
@@ -75,6 +74,10 @@ class Datepicker extends React.Component {
               </TableRow>
             </TableBody>
           </Table>
+        </div>
+        <div>
+          <h4>Notes</h4>
+          <p><b>wrapperStyle & closeStyle</b> are additional props added to change the close & wrapper block style.</p>
         </div>
       </Page>
     );
