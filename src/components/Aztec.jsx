@@ -66,11 +66,7 @@ const getInitialValues = (fields) => {
   const data = {};
   _.each(fields, (field) => {
     if (field.props.value === undefined) {
-      if (response[field.id]) {
-        data[field.id] = response[field.id];
-      } else {
-        data[field.id] = '';
-      }
+      data[field.id] = '';
     } else {
       data[field.id] = field.props.value;
     }
@@ -85,11 +81,7 @@ const handleData = (...args) => {
 
 const updateResponse = (fields) => {
   _.each(fields, (field) => {
-    if (field.props.value === undefined || field.props.value === null || field.props.value === '') {
-      response[field.id] = field.props.defaultSelected || field.props.defaultChecked || field.props.defaultToggled || field.props.selected || '';
-    } else {
-      response[field.id] = field.props.value;
-    }
+    response[field.id] = response[field.id] || field.props.value || field.props.defaultSelected || field.props.defaultChecked || field.props.defaultToggled || field.props.selected || '';
   });
 };
 
