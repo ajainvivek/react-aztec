@@ -13,7 +13,7 @@ const LIBMap = {
   }
 };
 
-window.aztec_response = window.aztec_response || {};
+let response = {};
 
 const getFieldValue = (...args) => {
   const type = args[0].type;
@@ -66,8 +66,8 @@ const getInitialValues = (fields) => {
   const data = {};
   _.each(fields, (field) => {
     if (field.props.value === undefined) {
-      if (window.aztec_response[field.id]) {
-        data[field.id] = window.aztec_response[field.id];
+      if (response[field.id]) {
+        data[field.id] = response[field.id];
       } else {
         data[field.id] = '';
       }
@@ -80,15 +80,15 @@ const getInitialValues = (fields) => {
 
 const handleData = (...args) => {
   const val = getFieldValue(...args);
-  window.aztec_response[args[0].id] = val;
+  response[args[0].id] = val;
 };
 
 const updateResponse = (fields) => {
   _.each(fields, (field) => {
     if (field.props.value === undefined || field.props.value === null || field.props.value === '') {
-      window.aztec_response[field.id] = window.aztec_response[field.id] || field.props.defaultSelected || field.props.defaultChecked || field.props.defaultToggled || field.props.selected || '';
+      response[field.id] = field.props.defaultSelected || field.props.defaultChecked || field.props.defaultToggled || field.props.selected || '';
     } else {
-      window.aztec_response[field.id] = field.props.value;
+      response[field.id] = field.props.value;
     }
   });
 };
@@ -97,9 +97,9 @@ const getCurrentFormData = (fields, errors) => {
   const formData = Object.assign([], fields);
   _.map(formData, (field) => {
     if (field.type === 'selectfield') {
-      field.props.selected = window.aztec_response[field.id];
+      field.props.selected = response[field.id];
     } else {
-      field.props.value = window.aztec_response[field.id];
+      field.props.value = response[field.id];
     }
     const error = _.find(errors, {
       id: field.id
@@ -118,7 +118,7 @@ const getErrors = (fields) => {
   const errors = [];
   _.each(mandatoryFields, (field, index) => {
     _.each(field.rules.validation, (rule) => {
-      const isClean = validation[rule.rule](window.aztec_response[field.id].toString(), rule.value);
+      const isClean = validation[rule.rule](response[field.id].toString(), rule.value);
       if (!isClean) {
         const error = Object.assign({}, rule, {
           id: field.id
@@ -136,7 +136,7 @@ const handleSubmit = (callback, data) => {
   if (typeof callback === 'function') {
     const currentFormData = getCurrentFormData(fields, errors);
     updateResponse(fields);
-    callback(window.aztec_response, errors, currentFormData);
+    callback(response, errors, currentFormData);
   }
 };
 
@@ -149,9 +149,10 @@ export const Aztec = (props) => {
     if (props.displayErrors) {
       errors = getErrors(props.data);
     }
-    window.aztec_response = getInitialValues(data);
     updateResponse(props.data);
     data = getCurrentFormData(props.data, errors);
+  } else {
+    response = getInitialValues(data);
   }
   const layout = generateLayout(data);
   config.modules = props.library;
@@ -305,6 +306,7 @@ Aztec.propTypes = {
   onUpdateInput: PropTypes.func,
   onNewRequest: PropTypes.func,
   filter: PropTypes.func,
+  response: PropTypes.object,
   onSubmit: PropTypes.func,
   formRef: PropTypes.func,
   forceUpdate: PropTypes.bool,
