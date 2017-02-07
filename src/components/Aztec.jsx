@@ -86,7 +86,7 @@ const updateResponse = (fields, patch) => {
     } else {
       response[field.id] = response[field.id];
     }
-    if (patch[field.id] !== undefined) { // Patch update data
+    if (patch && patch[field.id] !== undefined) { // Patch update data
       response[field.id] = patch[field.id];
     }
   });
