@@ -34,6 +34,9 @@ const getFieldValue = (...args) => {
     case 'datepicker':
       value = args[2];
       break;
+    case 'timepicker':
+      value = args[2];
+      break;
     case 'radio':
       value = args[2];
       break;
@@ -82,7 +85,11 @@ const handleData = (...args) => {
 
 const updateResponse = (fields) => {
   _.each(fields, (field) => {
-    response[field.id] = response[field.id] || field.props.value || field.props.defaultSelected || field.props.defaultChecked || field.props.defaultToggled || field.props.selected || '';
+    if (field.props.value === undefined || field.props.value === null || field.props.value === '') {
+      response[field.id] = response[field.id] || field.props.defaultSelected || field.props.defaultChecked || field.props.defaultToggled || field.props.selected || '';
+    } else {
+      response[field.id] = field.props.value;
+    }
   });
 };
 
@@ -150,7 +157,9 @@ export const Aztec = (props) => {
                     onChange={
                       (...args) => {
                         handleData(...args);
-                        props.onChange(...args);
+                        if (typeof props.onChange === 'function') {
+                          props.onChange(...args);
+                        }
                       }
                     }
                     onBlur={props.onBlur}
@@ -158,13 +167,17 @@ export const Aztec = (props) => {
                     onCheck={
                       (...args) => {
                         handleData(...args);
-                        props.onCheck(...args);
+                        if (typeof props.onCheck === 'function') {
+                          props.onCheck(...args);
+                        }
                       }
                     }
                     onToggle={
                       (...args) => {
                         handleData(...args);
-                        props.onToggle(...args);
+                        if (typeof props.onToggle === 'function') {
+                          props.onToggle(...args);
+                        }
                       }
                     }
                     onShow={props.onShow}
@@ -173,7 +186,9 @@ export const Aztec = (props) => {
                     onUpdateInput={
                       (...args) => {
                         handleData(...args);
-                        props.onUpdateInput(...args);
+                        if (typeof props.onUpdateInput === 'function') {
+                          props.onUpdateInput(...args);
+                        }
                       }
                     }
                     onNewRequest={props.onNewRequest}
@@ -202,7 +217,9 @@ export const Aztec = (props) => {
                 onChange={
                   (...args) => {
                     handleData(...args);
-                    props.onChange(...args);
+                    if (typeof props.onChange === 'function') {
+                      props.onChange(...args);
+                    }
                   }
                 }
                 onBlur={props.onBlur}
@@ -210,13 +227,17 @@ export const Aztec = (props) => {
                 onCheck={
                   (...args) => {
                     handleData(...args);
-                    props.onCheck(...args);
+                    if (typeof props.onCheck === 'function') {
+                      props.onCheck(...args);
+                    }
                   }
                 }
                 onToggle={
                   (...args) => {
                     handleData(...args);
-                    props.onToggle(...args);
+                    if (typeof props.onToggle === 'function') {
+                      props.onToggle(...args);
+                    }
                   }
                 }
                 onShow={props.onShow}
@@ -225,7 +246,9 @@ export const Aztec = (props) => {
                 onUpdateInput={
                   (...args) => {
                     handleData(...args);
-                    props.onUpdateInput(...args);
+                    if (typeof props.onUpdateInput === 'function') {
+                      props.onUpdateInput(...args);
+                    }
                   }
                 }
                 onNewRequest={props.onNewRequest}

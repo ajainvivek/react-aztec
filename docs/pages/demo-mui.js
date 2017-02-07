@@ -105,17 +105,17 @@ class SimpleForm extends React.Component {
           <div className="col-md-12">
             <h4>Refer the response on submit</h4>
             <h4 style={{ color: 'green' }}>Response Form Data</h4>
-            <p style={{ fontSize: '14px', color: '#7f7d7d' }}>
+            <div style={{ fontSize: '14px', color: '#7f7d7d' }}>
               <pre>
                 {this.state.response || '<>'}
               </pre>
-            </p>
+            </div>
             <h4 style={{ color: 'red' }}>Errors</h4>
-            <p style={{ fontSize: '14px', color: '#7f7d7d' }}>
+            <div style={{ fontSize: '14px', color: '#7f7d7d' }}>
               <pre>
                 {this.state.errors || '<>'}
               </pre>
-            </p>
+            </div>
           </div>
         </div>
 
