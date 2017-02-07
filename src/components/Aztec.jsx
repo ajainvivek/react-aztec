@@ -81,7 +81,11 @@ const handleData = (...args) => {
 
 const updateResponse = (fields) => {
   _.each(fields, (field) => {
-    response[field.id] = response[field.id] || field.props.value || field.props.defaultSelected || field.props.defaultChecked || field.props.defaultToggled || field.props.selected || '';
+    if (response[field.id] !== '') {
+      response[field.id] = field.props.value || field.props.defaultSelected || field.props.defaultChecked || field.props.defaultToggled || field.props.selected || '';
+    } else {
+      response[field.id] = response[field.id];
+    }
   });
 };
 
