@@ -96,7 +96,11 @@ const updateResponse = (fields) => {
 const getCurrentFormData = (fields, errors) => {
   const formData = Object.assign([], fields);
   _.map(formData, (field) => {
-    field.props.value = response[field.id];
+    if (field.type === 'selectfield') {
+      field.props.selected = response[field.id];
+    } else {
+      field.props.value = response[field.id];
+    }
     const error = _.find(errors, {
       id: field.id
     });
