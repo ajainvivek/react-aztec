@@ -79,12 +79,15 @@ const handleData = (...args) => {
   response[args[0].id] = val;
 };
 
-const updateResponse = (fields) => {
+const updateResponse = (fields, patch) => {
   _.each(fields, (field) => {
     if (response[field.id] === '' || response[field.id] === undefined) {
       response[field.id] = field.props.value || field.props.defaultSelected || field.props.defaultChecked || field.props.defaultToggled || field.props.selected || '';
     } else {
       response[field.id] = response[field.id];
+    }
+    if (patch[field.id] !== undefined) { // Patch update data
+      response[field.id] = patch[field.id];
     }
   });
 };
@@ -145,7 +148,7 @@ export const Aztec = (props) => {
     if (props.displayErrors) {
       errors = getErrors(props.data);
     }
-    updateResponse(props.data);
+    updateResponse(props.data, props.patch);
     data = getCurrentFormData(props.data, errors);
   } else {
     response = getInitialValues(data);
@@ -306,6 +309,7 @@ Aztec.propTypes = {
   onSubmit: PropTypes.func,
   formRef: PropTypes.func,
   forceUpdate: PropTypes.bool,
-  displayErrors: PropTypes.bool
+  displayErrors: PropTypes.bool,
+  patch: PropTypes.object
 };
 export default Aztec;
