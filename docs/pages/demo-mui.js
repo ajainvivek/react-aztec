@@ -18,7 +18,8 @@ class Demo extends React.Component {
     this.state = {
       formData: JSONData,
       response: '',
-      errors: ''
+      errors: '',
+      displayFormErrors: false
     };
     this.onUpdate = this.onUpdate.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -31,7 +32,8 @@ class Demo extends React.Component {
     this.setState({
       response: JSON.stringify(response, null, 2),
       errors: JSON.stringify(errors, null, 2),
-      formData
+      formData,
+      displayFormErrors: true
     });
   }
   triggerSubmit(data) {
@@ -48,14 +50,16 @@ class SimpleForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formData: JSONData
+      formData: JSONData,
+      displayFormErrors: false
     }
     this.onSubmit = this.onSubmit.bind(this);
     this.triggerSubmit = this.triggerSubmit.bind(this);
   }
   onSubmit(response, errors, formData) {
     this.setState({
-      formData //!important to reset the formData to retain the updated form values on UI
+      formData, //!important to reset the formData to retain the updated form values on UI
+      displayFormErrors: true //To display field errors
     });
   }
   triggerSubmit(data) {
@@ -66,7 +70,9 @@ class SimpleForm extends React.Component {
       <div>
         <Aztec
           data={this.state.formData}
+          displayErrors={this.state.displayFormErrors} //Displays only mandatory field errors
           library={MUI}
+          forceUpdate={false} //Default(false) -> Force update the form data
           onChange={this.onUpdate}
           formRef={
             (form) => {
@@ -93,6 +99,7 @@ class SimpleForm extends React.Component {
               data={this.state.formData}
               library={MUI}
               onChange={this.onUpdate}
+              displayErrors={this.state.displayFormErrors}
               formRef={
                 (form) => {
                   this.formRef = form;

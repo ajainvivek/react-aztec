@@ -113,10 +113,9 @@ const getCurrentFormData = (fields, errors) => {
   return formData;
 };
 
-const handleSubmit = (callback, data) => {
-  const fields = data;
-  const errors = [];
+const getErrors = (fields) => {
   const mandatoryFields = getAllMandatoryFields(fields);
+  const errors = [];
   _.each(mandatoryFields, (field, index) => {
     _.each(field.rules.validation, (rule) => {
       const isClean = validation[rule.rule](response[field.id].toString(), rule.value);
@@ -128,6 +127,12 @@ const handleSubmit = (callback, data) => {
       }
     });
   });
+  return errors;
+};
+
+const handleSubmit = (callback, data) => {
+  const fields = data;
+  const errors = getErrors(data);
   if (typeof callback === 'function') {
     const currentFormData = getCurrentFormData(fields, errors);
     updateResponse(fields);
@@ -138,9 +143,18 @@ const handleSubmit = (callback, data) => {
 /** Aztec */
 export const Aztec = (props) => {
   const config = LIBMap.MUI;
-  const layout = generateLayout(props.data);
+  let data = props.data;
+  response = getInitialValues(data);
+  if (!props.forceUpdate) {
+    let errors = [];
+    if (props.displayErrors) {
+      errors = getErrors(props.data);
+    }
+    updateResponse(props.data);
+    data = getCurrentFormData(props.data, errors);
+  }
+  const layout = generateLayout(data);
   config.modules = props.library;
-  response = getInitialValues(props.data);
   return (
     <div>
       {
@@ -265,7 +279,7 @@ export const Aztec = (props) => {
       <button
         ref={props.formRef}
         onClick={() => {
-          handleSubmit(props.onSubmit, props.data);
+          handleSubmit(props.onSubmit, data);
         }}
         style={{
           display: 'none'
@@ -293,6 +307,8 @@ Aztec.propTypes = {
   filter: PropTypes.func,
   response: PropTypes.object,
   onSubmit: PropTypes.func,
-  formRef: PropTypes.func
+  formRef: PropTypes.func,
+  forceUpdate: PropTypes.bool,
+  displayErrors: PropTypes.bool
 };
 export default Aztec;
