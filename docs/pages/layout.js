@@ -41,7 +41,11 @@ class Layout extends React.Component {
   render() {
     return (
       <div>
-        <Aztec data={JSONData} library={MUI}/>
+        <Aztec
+          guid="layout"
+          data={JSONData}
+          library={MUI}
+        />
       </div>
     )
   }
@@ -55,7 +59,12 @@ class Layout extends React.Component {
 
         <div className="full-width codedemo row">
           <div className="col-md-24">
-            <Aztec data={JSONData} library={MUI} onChange={this.onUpdate} />
+            <Aztec
+              guid="layout"
+              data={JSONData}
+              library={MUI}
+              onChange={this.onUpdate}
+            />
           </div>
         </div>
 

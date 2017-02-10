@@ -41,7 +41,11 @@ class AutoComplete extends React.Component {
   render() {
     return (
       <div>
-        <Aztec data={JSONData} library={MUI}/>
+        <Aztec
+          guid="autocomplete"
+          data={JSONData}
+          library={MUI}
+        />
       </div>
     )
   }
@@ -55,7 +59,12 @@ class AutoComplete extends React.Component {
 
         <div className="full-width codedemo row">
           <div className="col-md-24">
-            <Aztec data={JSONData} library={MUI} onUpdateInput={this.onUpdate} />
+            <Aztec
+              guid="autocomplete"
+              data={JSONData}
+              library={MUI}
+              onUpdateInput={this.onUpdate}
+            />
           </div>
         </div>
 

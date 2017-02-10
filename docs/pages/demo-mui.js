@@ -69,10 +69,12 @@ class SimpleForm extends React.Component {
     return (
       <div>
         <Aztec
+          guid="simple-form" //mandatory unique id
           data={this.state.formData}
           displayErrors={this.state.displayFormErrors} //Displays only mandatory field errors
           library={MUI}
           forceUpdate={false} //Default(false) -> Force update the form data
+          patch={{ 1 : 'Patched Name' }} //pass patch to update the data partially {"1": "Name"}
           onChange={this.onUpdate}
           formRef={
             (form) => {
@@ -97,8 +99,10 @@ class SimpleForm extends React.Component {
           <div className="col-md-12">
             <Aztec
               data={this.state.formData}
+              guid="simple-form"
               library={MUI}
               onChange={this.onUpdate}
+              patch={{ 1: 'Patched Name' }}
               displayErrors={this.state.displayFormErrors}
               formRef={
                 (form) => {

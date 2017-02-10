@@ -13,7 +13,7 @@ const LIBMap = {
   }
 };
 
-let response = {};
+const response = {};
 
 const getFieldValue = (...args) => {
   const type = args[0].type;
@@ -74,31 +74,31 @@ const getInitialValues = (fields) => {
   return data;
 };
 
-const handleData = (...args) => {
+const handleData = (guid, ...args) => {
   const val = getFieldValue(...args);
-  response[args[0].id] = val;
+  response[guid][args[0].id] = val;
 };
 
-const updateResponse = (fields, patch) => {
+const updateResponse = (fields, patch, guid) => {
   _.each(fields, (field) => {
-    if (response[field.id] === '' || response[field.id] === undefined) {
-      response[field.id] = field.props.value || field.props.defaultSelected || field.props.defaultChecked || field.props.defaultToggled || field.props.selected || '';
+    if (response[guid][field.id] === '' || response[guid][field.id] === undefined) {
+      response[guid][field.id] = field.props.value || field.props.defaultSelected || field.props.defaultChecked || field.props.defaultToggled || field.props.selected || '';
     } else {
-      response[field.id] = response[field.id];
+      response[guid][field.id] = response[guid][field.id];
     }
     if (patch && patch[field.id] !== undefined) { // Patch update data
-      response[field.id] = patch[field.id];
+      response[guid][field.id] = patch[field.id];
     }
   });
 };
 
-const getCurrentFormData = (fields, errors) => {
+const getCurrentFormData = (fields, errors, guid) => {
   const formData = Object.assign([], fields);
   _.map(formData, (field) => {
     if (field.type === 'selectfield') {
-      field.props.selected = response[field.id];
+      field.props.selected = response[guid][field.id];
     } else {
-      field.props.value = response[field.id];
+      field.props.value = response[guid][field.id];
     }
     const error = _.find(errors, {
       id: field.id
@@ -112,12 +112,12 @@ const getCurrentFormData = (fields, errors) => {
   return formData;
 };
 
-const getErrors = (fields) => {
+const getErrors = (fields, guid) => {
   const mandatoryFields = getAllMandatoryFields(fields);
   const errors = [];
   _.each(mandatoryFields, (field, index) => {
     _.each(field.rules.validation, (rule) => {
-      const isClean = validation[rule.rule](response[field.id].toString(), rule.value);
+      const isClean = validation[rule.rule](response[guid][field.id].toString(), rule.value);
       if (!isClean) {
         const error = Object.assign({}, rule, {
           id: field.id
@@ -129,12 +129,12 @@ const getErrors = (fields) => {
   return errors;
 };
 
-const handleSubmit = (callback, data) => {
+const handleSubmit = (callback, data, guid) => {
   const fields = data;
-  const errors = getErrors(data);
+  const errors = getErrors(data, guid);
   if (typeof callback === 'function') {
-    const currentFormData = getCurrentFormData(fields, errors);
-    updateResponse(fields);
+    const currentFormData = getCurrentFormData(fields, errors, guid);
+    updateResponse(fields, null, guid);
     callback(response, errors, currentFormData);
   }
 };
@@ -146,12 +146,14 @@ export const Aztec = (props) => {
   if (!props.forceUpdate) {
     let errors = [];
     if (props.displayErrors) {
-      errors = getErrors(props.data);
+      errors = getErrors(props.data, props.guid);
     }
-    updateResponse(props.data, props.patch);
-    data = getCurrentFormData(props.data, errors);
+    response[props.guid] = response[props.guid] || {};
+    updateResponse(props.data, props.patch, props.guid);
+    data = getCurrentFormData(props.data, errors, props.guid);
   } else {
-    response = getInitialValues(data);
+    response[props.guid] = response[props.guid] || {};
+    response[props.guid] = getInitialValues(data);
   }
   const layout = generateLayout(data);
   config.modules = props.library;
@@ -174,7 +176,7 @@ export const Aztec = (props) => {
                     formatter={field.formatter}
                     onChange={
                       (...args) => {
-                        handleData(...args);
+                        handleData(props.guid, ...args);
                         if (typeof props.onChange === 'function') {
                           props.onChange(...args);
                         }
@@ -184,7 +186,7 @@ export const Aztec = (props) => {
                     onFocus={props.onFocus}
                     onCheck={
                       (...args) => {
-                        handleData(...args);
+                        handleData(props.guid, ...args);
                         if (typeof props.onCheck === 'function') {
                           props.onCheck(...args);
                         }
@@ -192,7 +194,7 @@ export const Aztec = (props) => {
                     }
                     onToggle={
                       (...args) => {
-                        handleData(...args);
+                        handleData(props.guid, ...args);
                         if (typeof props.onToggle === 'function') {
                           props.onToggle(...args);
                         }
@@ -203,7 +205,7 @@ export const Aztec = (props) => {
                     onTouchTap={props.onTouchTap}
                     onUpdateInput={
                       (...args) => {
-                        handleData(...args);
+                        handleData(props.guid, ...args);
                         if (typeof props.onUpdateInput === 'function') {
                           props.onUpdateInput(...args);
                         }
@@ -234,7 +236,7 @@ export const Aztec = (props) => {
                 fetchResponse={props.fetchResponse}
                 onChange={
                   (...args) => {
-                    handleData(...args);
+                    handleData(props.guid, ...args);
                     if (typeof props.onChange === 'function') {
                       props.onChange(...args);
                     }
@@ -244,7 +246,7 @@ export const Aztec = (props) => {
                 onFocus={props.onFocus}
                 onCheck={
                   (...args) => {
-                    handleData(...args);
+                    handleData(props.guid, ...args);
                     if (typeof props.onCheck === 'function') {
                       props.onCheck(...args);
                     }
@@ -252,7 +254,7 @@ export const Aztec = (props) => {
                 }
                 onToggle={
                   (...args) => {
-                    handleData(...args);
+                    handleData(props.guid, ...args);
                     if (typeof props.onToggle === 'function') {
                       props.onToggle(...args);
                     }
@@ -263,7 +265,7 @@ export const Aztec = (props) => {
                 onTouchTap={props.onTouchTap}
                 onUpdateInput={
                   (...args) => {
-                    handleData(...args);
+                    handleData(props.guid, ...args);
                     if (typeof props.onUpdateInput === 'function') {
                       props.onUpdateInput(...args);
                     }
@@ -279,7 +281,7 @@ export const Aztec = (props) => {
       <button
         ref={props.formRef}
         onClick={() => {
-          handleSubmit(props.onSubmit, data);
+          handleSubmit(props.onSubmit, data, props.guid);
         }}
         style={{
           display: 'none'
@@ -310,6 +312,7 @@ Aztec.propTypes = {
   formRef: PropTypes.func,
   forceUpdate: PropTypes.bool,
   displayErrors: PropTypes.bool,
-  patch: PropTypes.object
+  patch: PropTypes.object,
+  guid: PropTypes.string.isRequired
 };
 export default Aztec;

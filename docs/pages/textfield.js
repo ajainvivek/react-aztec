@@ -34,7 +34,11 @@ class Texfield extends React.Component {
   render() {
     return (
       <div>
-        <Aztec data={JSONData} library={MUI}/>
+        <Aztec
+          guid="textfield"
+          data={JSONData}
+          library={MUI}
+        />
       </div>
     )
   }
@@ -50,7 +54,12 @@ class Texfield extends React.Component {
 
         <div className="full-width codedemo row">
           <div className="col-md-24">
-            <Aztec data={JSONData} library={MUI} onChange={this.onUpdate} />
+            <Aztec
+              guid="textfield"
+              data={JSONData}
+              library={MUI}
+              onChange={this.onUpdate}
+            />
           </div>
         </div>
 

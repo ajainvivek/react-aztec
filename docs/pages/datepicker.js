@@ -34,7 +34,11 @@ class Datepicker extends React.Component {
   render() {
     return (
       <div>
-        <Aztec data={JSONData} library={MUI}/>
+        <Aztec
+          guid="datepicker"
+          data={JSONData}
+          library={MUI}
+        />
       </div>
     )
   }
@@ -47,7 +51,11 @@ class Datepicker extends React.Component {
 
         <div className="full-width codedemo row">
           <div className="col-md-24">
-            <Aztec data={this.state.formData} library={MUI} onChange={this.onUpdate} />
+            <Aztec
+              guid="datepicker"
+              data={this.state.formData}
+              library={MUI} onChange={this.onUpdate}
+            />
           </div>
         </div>
 
