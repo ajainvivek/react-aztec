@@ -42,7 +42,11 @@ class SimpleForm extends React.Component {
   render() {
     return (
       <div>
-        <Aztec data={formData} library={MUI} />
+        <Aztec
+          guid="unique-id"
+          data={formData}
+          library={MUI}
+        />
       </div>
     )
   }
@@ -79,7 +83,11 @@ class SimpleForm extends React.Component {
   render() {
     return (
       <div>
-        <Aztec data={formData} library={MUI} />
+        <Aztec
+          guid="unique-id"
+          data={formData}
+          library={MUI}
+        />
       </div>
     )
   }
@@ -125,7 +133,11 @@ class SimpleForm extends React.Component {
   render() {
     return (
       <div>
-        <Aztec data={formData} library={MUI} />
+        <Aztec
+          guid="unique-id"
+          data={formData}
+          library={MUI}
+        />
       </div>
     )
   }
