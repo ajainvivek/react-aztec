@@ -1,4 +1,4 @@
-import TextField from './TextField';
+import TextField from './Textfield';
 import Radio from './Radio';
 import SelectField from './SelectField';
 import Checkbox from './Checkbox';
