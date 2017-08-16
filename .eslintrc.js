@@ -10,7 +10,7 @@ module.exports = {
     "react"
   ],
   "rules": {
-    "comma-dangle": ["error", "never"],
+    "comma-dangle": 0,
     "prefer-arrow-callback": 0,
     "func-names": 0,
     "import/no-extraneous-dependencies": 0,
@@ -23,6 +23,22 @@ module.exports = {
     "react/require-extension": 0,
     "react/jsx-uses-react": 0,
     "react/forbid-prop-types": 0,
-    "react/no-unused-prop-types": 0
+    "react/no-unused-prop-types": 0,
+    "linebreak-style": 0,
+    "comma-dangle": 0,
+    "max-len": 0,
+    "import/imports-first": 0,
+    "class-methods-use-this": 0,
+    "semi": 0,
+    "react/jsx-filename-extension": 0,
+    "space-before-blocks": 0,
+    "space-infix-ops": 0,
+    "react/jsx-closing-bracket-location": 0,
+    "react/jsx-first-prop-new-line": 0,
+    "no-nested-ternary": 0,
+    "import/no-unresolved": 0,
+    "import/extensions": 0,
+    "arrow-body-style": 0,
+    "no-param-reassign": 0,
   }
 };
