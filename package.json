@@ -5,7 +5,7 @@
   "user": "ajainvivek",
   "version": "0.1.35",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --port 8000",
     "test": "jest --",
     "test:coverage": "jest --coverage --",
     "test:watch": "jest --watch --",
